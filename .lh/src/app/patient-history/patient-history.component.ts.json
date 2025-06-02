@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/app/patient-history/patient-history.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1747544519219,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1747556654129,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,14 @@\n import { Component } from '@angular/core';\r\n-import { RouterModule } from '@angular/router';\r\n+import { SidebarMenuComponent } from '../sidebar-menu/sidebar-menu.component'; // Importa el componente de menú\r\n+import { CommonModule } from '@angular/common'; // Importa CommonModule si aún no está\r\n \r\n @Component({\r\n-  standalone: true,\r\n   selector: 'app-patient-history',\r\n-  imports: [RouterModule],\r\n+  standalone: true, // Marca el componente como independiente\r\n+  imports: [CommonModule, SidebarMenuComponent], // Importa el componente de menú aquí\r\n   templateUrl: './patient-history.component.html',\r\n   styleUrls: ['./patient-history.component.css']\r\n })\r\n-export class PatientHistoryComponent {}\r\n+export class PatientHistoryComponent {\r\n+  constructor() { }\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1747559186519,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,14 +1,39 @@\n-import { Component } from '@angular/core';\r\n-import { SidebarMenuComponent } from '../sidebar-menu/sidebar-menu.component'; // Importa el componente de menú\r\n-import { CommonModule } from '@angular/common'; // Importa CommonModule si aún no está\r\n+import { Component, OnInit } from '@angular/core';\r\n+import { SidebarMenuComponent } from '../sidebar-menu/sidebar-menu.component';\r\n+import { CommonModule } from '@angular/common';\r\n+import { RouterLink } from '@angular/router';\r\n \r\n+interface Patient {\r\n+  id: number; // O el tipo de tu identificador de paciente\r\n+  nombre: string;\r\n+  ultimaVisita: string;\r\n+  proximaVisita: string;\r\n+}\r\n+\r\n @Component({\r\n   selector: 'app-patient-history',\r\n-  standalone: true, // Marca el componente como independiente\r\n-  imports: [CommonModule, SidebarMenuComponent], // Importa el componente de menú aquí\r\n+  standalone: true,\r\n+  imports: [CommonModule, SidebarMenuComponent, RouterLink],\r\n   templateUrl: './patient-history.component.html',\r\n   styleUrls: ['./patient-history.component.css']\r\n })\r\n-export class PatientHistoryComponent {\r\n+export class PatientHistoryComponent implements OnInit {\r\n+  patients: Patient[] = []; // <--- ¡Declara e inicializa la propiedad 'patients' aquí!\r\n+\r\n   constructor() { }\r\n+\r\n+  ngOnInit(): void {\r\n+    // Aquí deberías llamar a un servicio para obtener la lista de pacientes\r\n+    this.loadPatients();\r\n+  }\r\n+\r\n+  loadPatients(): void {\r\n+    // Simulación de la obtención de la lista de pacientes (reemplazar con llamada a servicio)\r\n+    this.patients = [\r\n+      { id: 1, nombre: 'María López', ultimaVisita: '15/05/2023', proximaVisita: '15/06/2023' },\r\n+      { id: 2, nombre: 'Carlos Rodríguez', ultimaVisita: '10/05/2023', proximaVisita: '10/06/2023' },\r\n+      { id: 3, nombre: 'Ana Martínez', ultimaVisita: '05/05/2023', proximaVisita: '05/06/2023' },\r\n+      { id: 4, nombre: 'Juan Pérez', ultimaVisita: '01/05/2023', proximaVisita: '01/06/2023' }\r\n+    ];\r\n+  }\r\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1747544519219,
+            "name": "Commit-0",
+            "content": "import { Component } from '@angular/core';\r\nimport { RouterModule } from '@angular/router';\r\n\r\n@Component({\r\n  standalone: true,\r\n  selector: 'app-patient-history',\r\n  imports: [RouterModule],\r\n  templateUrl: './patient-history.component.html',\r\n  styleUrls: ['./patient-history.component.css']\r\n})\r\nexport class PatientHistoryComponent {}\r\n"
+        }
+    ]
+}

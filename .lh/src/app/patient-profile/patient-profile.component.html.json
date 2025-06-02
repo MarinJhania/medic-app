@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/patient-profile/patient-profile.component.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1747631623316,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1747631623316,
+            "name": "Commit-0",
+            "content": "<div class=\"dashboard-container\">\r\n  <app-patient-sidebar-menu></app-patient-sidebar-menu>\r\n\r\n  <div class=\"main-content\">\r\n    <section class=\"user-profile-section\">\r\n      <h1 class=\"section-title\">Datos del Usuario</h1>\r\n      <p class=\"section-subtitle\">Actualiza tu información personal</p>\r\n\r\n      <form class=\"profile-form\">\r\n        <div class=\"form-row\">\r\n          <div class=\"form-group\">\r\n            <label for=\"fullName\">Nombre completo <span class=\"required\">*</span></label>\r\n            <input type=\"text\" id=\"fullName\" value=\"María González López\" required>\r\n            </div>\r\n\r\n          <div class=\"form-group\">\r\n            <label for=\"email\">Correo electrónico <span class=\"required\">*</span></label>\r\n            <input type=\"email\" id=\"email\" value=\"maria.gonzalez@example.com\" required>\r\n            </div>\r\n        </div>\r\n\r\n        <div class=\"form-row\">\r\n          <div class=\"form-group\">\r\n            <label for=\"phone\">Teléfono <span class=\"required\">*</span></label>\r\n            <input type=\"tel\" id=\"phone\" value=\"555-123-4567\" required>\r\n            </div>\r\n\r\n          <div class=\"form-group date-picker-group\">\r\n            <label for=\"birthDate\">Fecha de nacimiento <span class=\"required\">*</span></label>\r\n            <div class=\"input-with-icon\">\r\n              <input type=\"date\" id=\"birthDate\" value=\"1985-06-15\" required>\r\n              <i class=\"icon fas fa-calendar-alt\"></i> </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-row full-width\">\r\n          <div class=\"form-group\">\r\n            <label for=\"address\">Dirección <span class=\"required\">*</span></label>\r\n            <input type=\"text\" id=\"address\" value=\"Calle Principal 123, Ciudad de México\" required>\r\n             </div>\r\n        </div>\r\n\r\n         <div class=\"form-row full-width\">\r\n          <div class=\"form-group\">\r\n            <label for=\"insuranceNumber\">Número de seguro <span class=\"required\">*</span></label>\r\n            <input type=\"text\" id=\"insuranceNumber\" value=\"SEG-987654321\" required>\r\n             </div>\r\n        </div>\r\n\r\n\r\n        <h3 class=\"section-sub-title\">Contacto de emergencia</h3>\r\n\r\n        <div class=\"form-row\">\r\n          <div class=\"form-group\">\r\n            <label for=\"emergencyContactName\">Nombre de contacto <span class=\"required\">*</span></label>\r\n            <input type=\"text\" id=\"emergencyContactName\" value=\"Juan González\" required>\r\n             </div>\r\n\r\n          <div class=\"form-group\">\r\n            <label for=\"emergencyContactPhone\">Teléfono de contacto <span class=\"required\">*</span></label>\r\n            <input type=\"tel\" id=\"emergencyContactPhone\" value=\"555-987-6543\" required>\r\n             </div>\r\n        </div>\r\n\r\n        <div class=\"form-actions\">\r\n          <button type=\"submit\" class=\"btn btn-primary\">Guardar cambios</button>\r\n          </div>\r\n      </form>\r\n    </section>\r\n  </div>\r\n</div>"
+        }
+    ]
+}

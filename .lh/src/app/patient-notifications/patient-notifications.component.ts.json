@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/patient-notifications/patient-notifications.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1747632468242,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1747632468242,
+            "name": "Commit-0",
+            "content": "// patient-notifications.component.ts\r\n\r\nimport { Component, OnInit } from '@angular/core';\r\nimport { CommonModule } from '@angular/common';\r\nimport { PatientSidebarMenuComponent } from '../patient-sidebar-menu/patient-sidebar-menu.component';\r\nimport { Router, RouterModule } from '@angular/router';\r\nimport { FormsModule } from '@angular/forms'; // Si lo tenías importado\r\n\r\n@Component({\r\n  selector: 'app-patient-notifications',\r\n  standalone: true,\r\n  imports: [\r\n    CommonModule,\r\n    PatientSidebarMenuComponent,\r\n    RouterModule,\r\n    FormsModule // Si lo tenías importado\r\n  ],\r\n  templateUrl: './patient-notifications.component.html',\r\n  styleUrls: ['./patient-notifications.component.css']\r\n})\r\nexport class PatientNotificationsComponent implements OnInit {\r\n\r\n  notifications: any[] = [\r\n    // ... tus datos de ejemplo ...\r\n     {\r\n       id: 1, type: 'appointment', title: 'Cita Confirmada',\r\n       message: 'Su cita con Dr. García Martínez ha sido confirmada para mañana a las 09:00.',\r\n       date: '14 de noviembre, 10:30', isRead: false\r\n     },\r\n     {\r\n       id: 2, type: 'message', title: 'Mensaje del Doctor',\r\n       message: 'Por favor traiga sus últimos análisis de sangre a la consulta.',\r\n       date: '13 de noviembre, 15:20', isRead: true\r\n     },\r\n     {\r\n       id: 3, type: 'system', title: 'Actualización del Sistema',\r\n       message: 'Hemos actualizado nuestros términos de servicio.',\r\n       date: '12 de noviembre, 09:00', isRead: false\r\n     }\r\n  ];\r\n\r\n  constructor(private router: Router) { }\r\n\r\n  ngOnInit(): void {\r\n    // Cargar datos reales aquí\r\n  }\r\n\r\n  // >>> Añade este getter <<<\r\n  get unreadCount(): number {\r\n    // Esta lógica se ejecuta en el TS, donde es más seguro manejar undefined/null\r\n    // Usamos ?. para notificaciones y ?? 0 para asegurar que el resultado es un número\r\n    return this.notifications?.filter(n => !n.isRead).length ?? 0;\r\n  }\r\n\r\n  // ... el resto de tus métodos (getNotificationIcon, handleClickNotification, etc.) ...\r\n   getNotificationIcon(type: string): string {\r\n     switch (type) {\r\n       case 'appointment': return 'fas fa-calendar-alt';\r\n       case 'message': return 'fas fa-comment-dots';\r\n       case 'system': return 'fas fa-info-circle';\r\n       default: return 'fas fa-bell';\r\n     }\r\n   }\r\n\r\n   handleClickNotification(notification: any): void {\r\n       console.log('Clic en notificación:', notification);\r\n       if (!notification.isRead) {\r\n           notification.isRead = true;\r\n           // Lógica para marcar como leída en backend\r\n       }\r\n       // Lógica opcional para navegar\r\n   }\r\n\r\n}"
+        }
+    ]
+}

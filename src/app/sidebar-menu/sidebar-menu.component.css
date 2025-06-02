@@ -1,0 +1,462 @@
+/* Estilos generales del sidebar */
+.sidebar {
+    background-color: #3f51b5; /* Un azul primario */
+    color: white;
+    width: 25%; /* Ancho en pantallas grandes */
+    min-width: 250px; /* Ancho mínimo en pantallas grandes */
+    padding: 2em; /* Usar em para escalar con el tamaño de la fuente */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed; /* Fija la posición del menú */
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    z-index: 100;
+    /* Transiciones suaves para todos los cambios de diseño relevantes */
+    transition: width 0.3s ease, min-width 0.3s ease, transform 0.3s ease, padding 0.3s ease;
+
+    /* Estilos para el scroll */
+    overflow-y: auto;
+    overflow-x: hidden; /* Evita scroll horizontal no deseado */
+    padding-right: 10px; /* Pequeño padding para la barra de scroll */
+
+    /* Ocultar las líneas del scroll para Firefox */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* Estilos para la barra de desplazamiento en navegadores WebKit */
+.sidebar::-webkit-scrollbar {
+    width: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+/* --- Estado del sidebar oculto (usado para desktop/tablet cuando se esconde completamente) --- */
+.sidebar.hidden {
+    width: 0;
+    min-width: 0;
+    transform: translateX(-100%); /* Mueve el sidebar completamente fuera de la pantalla */
+    padding-left: 0; /* Quita el padding horizontal para que se oculte completamente */
+    padding-right: 0; /* Asegura que el padding se oculte también */
+}
+
+/* --- Estado del sidebar colapsado (solo iconos, desktop/tablet) --- */
+.sidebar.collapsed {
+    width: 80px; /* Un ancho fijo para el modo colapsado, solo con iconos */
+    min-width: 80px;
+    align-items: center; /* Centra los iconos */
+    padding: 2em 0.5em; /* Padding más pequeño */
+}
+
+/* Ocultar logo y texto de los enlaces cuando el sidebar está oculto O colapsado */
+.sidebar.hidden .logo,
+.sidebar.collapsed .logo,
+.sidebar.hidden .main-nav ul li a span:not(.icon), /* Excluye el icono */
+.sidebar.collapsed .main-nav ul li a span:not(.icon),
+.sidebar.hidden .logout a span:not(.icon),
+.sidebar.collapsed .logout a span:not(.icon) {
+    opacity: 0; /* Hace que el texto y logo se desvanezcan */
+    pointer-events: none; /* Evita interacciones con el texto oculto */
+    transition: opacity 0.3s ease; /* Transición suave para la opacidad */
+    width: 0; /* Para ayudar a que el contenido colapsado no ocupe espacio */
+    overflow: hidden;
+    white-space: nowrap; /* Evita que el texto se envuelva */
+}
+
+/* Ajustes para los enlaces cuando el sidebar está colapsado */
+.sidebar.collapsed .main-nav ul li a,
+.sidebar.collapsed .logout a {
+    padding: 1em 0.5em; /* Ajusta el padding para que el icono quede centrado */
+    justify-content: center; /* Centra el contenido (el icono) */
+}
+
+.sidebar.collapsed .main-nav ul li a .icon,
+.sidebar.collapsed .logout a .icon {
+    margin-right: 0; /* Quita el margen derecho del icono */
+}
+
+
+/* Estilos para el contenido principal */
+.main-content {
+    margin-left: 25%; /* Deja un espacio al inicio igual al ancho del sidebar */
+    transition: margin-left 0.3s ease; /* Transición suave para el margen */
+    padding: 20px; /* Padding para el contenido */
+}
+
+.main-content.sidebar-hidden {
+    margin-left: 0; /* Cuando el sidebar está oculto, el contenido principal ocupa todo el ancho */
+}
+
+.main-content.sidebar-collapsed {
+    margin-left: 80px; /* Cuando el sidebar está colapsado */
+}
+
+/* --- Estilos de los elementos internos del sidebar --- */
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 3em;
+    flex-shrink: 0;
+    transition: opacity 0.3s ease;
+}
+
+.main-nav {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.main-nav ul li a {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 1.2em 1.8em;
+    text-decoration: none;
+    margin-bottom: 0.6em;
+    border-radius: 0.5em;
+    transition: background-color 0.3s ease;
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.main-nav ul li a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.main-nav ul li a.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.main-nav ul li a .icon {
+    margin-right: 1em;
+    font-size: 2.5em;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+.logout {
+    margin-top: auto;
+    flex-shrink: 0;
+    width: 100%;
+}
+
+.logout a {
+    display: flex;
+    align-items: center;
+    color: white;
+    padding: 1.2em 1.8em;
+    text-decoration: none;
+    margin-bottom: 0.6em;
+    border-radius: 0.5em;
+    transition: background-color 0.3s ease;
+    font-size: 1.2em;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.logout a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.logout a .icon {
+    margin-right: 1em;
+    font-size: 2.5em;
+    line-height: 1;
+    flex-shrink: 0;
+}
+
+/* --- Botón de menú (toggle) dentro del sidebar --- */
+.menu-toggle { /* Usamos la clase 'menu-toggle' del HTML */
+    position: absolute; /* Posición absoluta dentro del sidebar */
+    top: 20px;
+    right: 20px; /* Posición a la derecha del sidebar */
+    background-color: transparent; /* Fondo transparente */
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.8em; /* Tamaño del icono de hamburguesa */
+    line-height: 1;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    z-index: 1; /* Asegura que esté por encima del contenido del sidebar si es necesario */
+}
+
+/* Cuando el sidebar está colapsado, el botón de menú puede necesitar un ajuste */
+.sidebar.collapsed .menu-toggle {
+    right: auto; /* Deshacer la posición a la derecha */
+    left: 50%; /* Centrarlo horizontalmente */
+    transform: translateX(-50%); /* Ajustar para un centrado perfecto */
+}
+
+/* --- Botón de menú móvil fuera del sidebar (cuando el sidebar está oculto) --- */
+.mobile-menu-button-container {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 105; /* Más alto que el overlay */
+    display: none; /* Oculto por defecto, visible solo en móvil con *ngIf */
+}
+
+.mobile-toggle-button {
+    background-color: #3f51b5; /* Color del botón móvil */
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.5em;
+    line-height: 1;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+}
+
+.mobile-toggle-button:hover {
+    background-color: #3949ab;
+}
+
+/* --- Overlay móvil --- */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semitransparente */
+    z-index: 99; /* Por debajo del sidebar, pero por encima del contenido principal */
+    opacity: 0; /* Inicialmente transparente */
+    transition: opacity 0.3s ease; /* Transición para la opacidad */
+}
+
+/* Cuando el overlay es visible, mostrarlo */
+.mobile-overlay.visible-mobile { /* Esta clase no es aplicada directamente por el TS en el overlay. Usa *ngIf para mostrarlo */
+    opacity: 1;
+}
+
+
+/* --- Media Queries para responsividad --- */
+
+/* Mobile View (menos de 768px) */
+@media (max-width: 767px) {
+    .sidebar {
+        width: 80%; /* Ancho del sidebar cuando se muestra en móvil */
+        min-width: 0;
+        transform: translateX(-100%); /* Inicialmente oculto a la izquierda */
+        /* La clase `visible-mobile` controlará si se muestra */
+        padding: 1.5em 1em; /* Ajusta el padding para móvil */
+    }
+
+    /* Mostrar sidebar en móvil cuando tiene la clase `visible-mobile` */
+    .sidebar.visible-mobile {
+        transform: translateX(0); /* Muestra el sidebar */
+    }
+
+    /* Ocultar el botón de menú dentro del sidebar en móvil */
+    .sidebar .menu-toggle {
+        display: none;
+    }
+
+    /* Mostrar el botón de menú móvil cuando la sidebar NO está visible */
+    .mobile-menu-button-container {
+        display: block; /* Visible en móvil */
+    }
+
+    /* Ocultar el botón de menú móvil cuando la sidebar SÍ está visible (ya que está dentro del overlay o la misma sidebar) */
+    .mobile-menu-button-container[ng-reflect-ng-if="false"] { /* Target *ngIf="isMobileView && !isSidebarVisibleMobile" */
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 0; /* En móviles, el contenido principal siempre ocupa todo el ancho */
+    }
+
+    /* En móvil, el sidebar siempre se "oculta" o se "muestra" como overlay,
+       por lo que las clases 'hidden' y 'collapsed' no controlan su desplazamiento físico
+       sino su estado lógico en el TS. El 'transform' es manejado por 'visible-mobile'. */
+    .sidebar.hidden {
+        transform: translateX(-100%);
+    }
+    .sidebar.collapsed { /* Asegúrate de que no se colapse a un ancho fijo en móvil */
+        width: 80%;
+        min-width: 0;
+        align-items: flex-start;
+        padding: 1.5em 1em;
+    }
+    /* En móvil, los textos siempre deben estar visibles si la sidebar lo está */
+    .sidebar.visible-mobile .logo,
+    .sidebar.visible-mobile .main-nav ul li a span:not(.icon),
+    .sidebar.visible-mobile .logout a span:not(.icon) {
+        opacity: 1;
+        pointer-events: auto;
+        width: auto;
+        overflow: visible;
+    }
+    .sidebar.visible-mobile .main-nav ul li a .icon,
+    .sidebar.visible-mobile .logout a .icon {
+        margin-right: 1em; /* Restaurar margen del icono */
+    }
+    .sidebar.visible-mobile .main-nav ul li a,
+    .sidebar.visible-mobile .logout a {
+        justify-content: flex-start; /* Restaurar alineación */
+    }
+}
+
+/* Tablet/Small Desktop (entre 768px y 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .sidebar {
+        width: 80px; /* Colapsado por defecto en este rango */
+        min-width: 80px;
+        align-items: center;
+        padding: 2em 0.5em;
+        transform: translateX(0); /* Asegura que esté visible y en su posición */
+    }
+
+    /* El logo y el texto de los enlaces están ocultos en este estado */
+    .sidebar .logo,
+    .sidebar .main-nav ul li a span:not(.icon),
+    .sidebar .logout a span:not(.icon) {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* El botón de menú dentro del sidebar es visible aquí */
+    .sidebar .menu-toggle {
+        display: block;
+    }
+
+    /* El botón de menú móvil externo no se muestra */
+    .mobile-menu-button-container {
+        display: none;
+    }
+
+    /* El overlay móvil no se muestra */
+    .mobile-overlay {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 80px; /* Margen para el contenido principal cuando el sidebar está colapsado */
+    }
+
+    /* Si el sidebar está 'hidden' en este rango (decisión del usuario), se oculta completamente */
+    .sidebar.hidden {
+        width: 0;
+        min-width: 0;
+        transform: translateX(-100%);
+        padding: 0;
+    }
+
+    .main-content.sidebar-hidden {
+        margin-left: 0; /* Cuando el sidebar está oculto */
+    }
+
+    /* Ajustar posición del botón de toggle en este rango */
+    .menu-toggle {
+        left: calc(80px - 40px); /* Un ejemplo, ajusta según el tamaño de tu botón */
+        right: auto; /* Desactiva la posición right */
+    }
+    .sidebar.hidden .menu-toggle {
+        left: 20px; /* Si el sidebar está oculto, el botón vuelve a la izquierda */
+    }
+}
+
+/* Large Desktops (más de 1024px) */
+@media (min-width: 1025px) {
+    .sidebar {
+        width: 25%;
+        min-width: 250px;
+        transform: translateX(0); /* Siempre visible en esta vista por defecto */
+        padding: 2em;
+    }
+
+    /* Asegurarse de que el logo y el texto de los enlaces sean visibles por defecto */
+    .sidebar .logo,
+    .sidebar .main-nav ul li a span:not(.icon),
+    .sidebar .logout a span:not(.icon) {
+        opacity: 1;
+        pointer-events: auto;
+        width: auto;
+        overflow: visible;
+        transition: opacity 0.3s ease;
+    }
+    .sidebar .main-nav ul li a .icon,
+    .sidebar .logout a .icon {
+        margin-right: 1em; /* Restaurar margen del icono */
+    }
+    .sidebar .main-nav ul li a,
+    .sidebar .logout a {
+        justify-content: flex-start; /* Restaurar alineación */
+    }
+
+
+    /* Ocultar el botón de menú móvil externo */
+    .mobile-menu-button-container {
+        display: none;
+    }
+
+    /* El overlay móvil no se muestra */
+    .mobile-overlay {
+        display: none;
+    }
+
+    /* El botón de menú dentro del sidebar es visible aquí */
+    .sidebar .menu-toggle {
+        display: block;
+    }
+
+    .main-content {
+        margin-left: 25%; /* Margen para el contenido principal cuando el sidebar está expandido */
+    }
+
+    /* Si el usuario colapsa el sidebar en esta vista */
+    .sidebar.collapsed {
+        width: 80px;
+        min-width: 80px;
+        align-items: center;
+        padding: 2em 0.5em;
+    }
+
+    /* Ajuste del margen para el contenido principal cuando el sidebar está colapsado en desktop */
+    .main-content.sidebar-collapsed {
+        margin-left: 80px;
+    }
+
+    /* El estado 'hidden' solo se usa si decides ocultar el sidebar completamente en desktop,
+       pero tu lógica TS solo lo usa para tablet/móvil y colapsado/expandido en desktop.
+       Si lo usas, asegúrate que estos estilos sean consistentes. */
+    .sidebar.hidden {
+        width: 0;
+        min-width: 0;
+        transform: translateX(-100%);
+        padding: 0;
+    }
+    .main-content.sidebar-hidden {
+        margin-left: 0;
+    }
+
+    /* Posición del botón de toggle en desktop */
+    .menu-toggle {
+        left: calc(25% - 40px); /* Un ejemplo, ajusta para que se vea a la izquierda del sidebar */
+        right: auto; /* Desactiva la posición right */
+    }
+    .sidebar.collapsed .menu-toggle {
+        left: calc(80px - 40px); /* Posición para sidebar colapsado */
+    }
+}

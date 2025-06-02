@@ -1,0 +1,114 @@
+/* Estilos generales (Mobile First - primero para pantallas pequeñas) */
+.home-container {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-image: linear-gradient(to bottom, #e0f7fa, #b2ebf2);
+    padding: 20px; /* Menos padding en móviles */
+    width: 95%; /* Más ancho en móviles */
+    max-width: 1200px;
+    border-radius: 15px;
+    margin: 20px auto; /* Centra el contenedor en la página */
+}
+
+.home-header h1 {
+    font-size: 1.8rem; /* Tamaño de fuente más pequeño para móviles */
+}
+
+.home-header p {
+    font-size: 0.9rem;
+}
+
+.home-options {
+    display: flex;
+    flex-direction: column; /* Apila las tarjetas en pantallas pequeñas */
+    gap: 20px; /* Menos espacio entre tarjetas en móviles */
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.option-card {
+    background-color: #fff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    padding: 2rem; /* Menos padding interno en móviles */
+    width: 100%; /* Cada tarjeta ocupa todo el ancho */
+    text-align: center;
+}
+
+.icon-svg {
+    width: 3rem; /* Icono más pequeño en móviles */
+    height: 3rem;
+    margin: 0 auto 1rem;
+}
+
+.card-title {
+    font-size: 1.3rem;
+}
+
+.card-description {
+    font-size: 1rem;
+}
+
+.access-link {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+}
+
+/* --- */
+@media (min-width: 768px) {
+    /* Estilos para tabletas y escritorios pequeños */
+    .home-container {
+        padding: 40px;
+        width: 80%;
+    }
+
+    .home-header h1 {
+        font-size: 2.5rem;
+    }
+
+    .home-header p {
+        font-size: 1rem;
+    }
+
+    .home-options {
+        flex-direction: row; /* Vuelve a poner las tarjetas en fila en pantallas más grandes */
+        flex-wrap: wrap; /* Asegura que se envuelvan si hay muchas */
+        justify-content: center;
+        gap: 40px;
+    }
+
+    .option-card {
+        width: 20rem; /* Vuelve al ancho original en pantallas más grandes */
+        padding: 3rem;
+        flex: 1 1 300px; /* Permite que las tarjetas crezcan/encojan con una base de 300px */
+    }
+
+    .icon-svg {
+        width: 4rem;
+        height: 4rem;
+        margin: 0 auto 1.5rem;
+    }
+
+    .card-title {
+        font-size: 1.5rem;
+    }
+
+    .card-description {
+        font-size: 1.1rem;
+    }
+
+    .access-link {
+        font-size: 1.1rem;
+        padding: 1rem 2rem;
+    }
+}
+
+/* --- */
+@media (min-width: 1024px) {
+    /* Estilos para escritorios más grandes */
+    .home-container {
+        max-width: 1200px;
+    }
+}

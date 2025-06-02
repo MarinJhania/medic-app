@@ -1,0 +1,66 @@
+<div class="dashboard-container">
+  <app-patient-sidebar-menu></app-patient-sidebar-menu>
+
+  <div class="main-content">
+    <section class="schedule-appointment-section">
+      <h1 class="section-title">Agendar Nueva Cita</h1>
+      <p class="section-subtitle">Sigue los pasos para encontrar y reservar tu próxima consulta médica.</p>
+
+      <div class="scheduling-steps-container">
+        <div class="scheduling-step">
+            <h3>1. Selecciona una Especialidad</h3>
+            <div class="specialty-list">
+                <button class="specialty-item">Medicina General</button>
+                <button class="specialty-item">Cardiología</button>
+                <button class="specialty-item">Dermatología</button>
+                <button class="specialty-item">Pediatría</button>
+                </div>
+        </div>
+
+        <hr class="step-divider"> <div class="scheduling-step">
+            <h3>2. Selecciona un Doctor</h3>
+            <div class="doctor-list">
+                <div class="doctor-item">
+                    <span class="doctor-name">Dr. García Martínez</span>
+                    <span class="doctor-specialty">(Medicina General)</span>
+                    <button class="btn btn-select-doctor">Seleccionar</button>
+                </div>
+                 <div class="doctor-item">
+                    <span class="doctor-name">Dra. Rodríguez López</span>
+                    <span class="doctor-specialty">(Medicina General)</span>
+                    <button class="btn btn-select-doctor">Seleccionar</button>
+                </div>
+                </div>
+        </div>
+
+         <hr class="step-divider"> <div class="scheduling-step">
+            <h3>3. Selecciona Fecha y Horario</h3>
+            <div class="date-time-selection">
+                <div class="form-group date-picker-group">
+                    <label for="schedule-date">Fecha:</label>
+                    <div class="input-with-icon">
+                         <input type="date" id="schedule-date">
+                         <i class="icon fas fa-calendar-alt"></i> </div>
+                </div>
+
+                <div class="form-group time-picker-group">
+                    <label>Horario disponible:</label>
+                     <div class="time-slots">
+                        <button class="time-slot">09:00</button>
+                        <button class="time-slot">09:30</button>
+                        <button class="time-slot">10:00</button>
+                        <button class="time-slot">10:30</button>
+                        </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
+      <div class="form-actions">
+          <button class="btn btn-cancel">Cancelar</button>
+          <button class="btn btn-primary">Confirmar Cita</button>
+      </div>
+    </section>
+  </div>
+</div>

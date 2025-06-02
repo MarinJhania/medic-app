@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/patient-dashboard/patient-dashboard.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1747614297616,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1747614297616,
+            "name": "Commit-0",
+            "content": "import { Component, OnInit } from '@angular/core';\r\nimport { CommonModule } from '@angular/common'; // Necesario para ngIf, ngFor, etc.\r\nimport { PatientSidebarMenuComponent } from '../patient-sidebar-menu/patient-sidebar-menu.component'; // Tu componente de menú del paciente\r\nimport { RouterLink } from '@angular/router'; // Necesario para [routerLink] en las tarjetas si las haces navegables\r\n\r\n@Component({\r\n  selector: 'app-patient-dashboard', // Selector para usar este componente\r\n  standalone: true, // <--- Marca como standalone\r\n  imports: [\r\n    CommonModule, // Si aplicas ngIf, ngFor en la plantilla\r\n    PatientSidebarMenuComponent, // Importa el menú del paciente\r\n    RouterLink // <--- Importa RouterLink si usas [routerLink] en las tarjetas o links de la cita\r\n    // Importa otros componentes o módulos standalone si los usas\r\n  ],\r\n  templateUrl: './patient-dashboard.component.html',\r\n  styleUrls: ['./patient-dashboard.component.css']\r\n})\r\nexport class PatientDashboardComponent implements OnInit {\r\n\r\n  // Aquí podrías tener variables para los datos dinámicos, ej:\r\n  patientName: string = 'Juan';\r\n  nextAppointment: any = {\r\n    fecha: '15 de Junio, 2023',\r\n    hora: '10:00 AM',\r\n    doctor: 'Dr. García',\r\n    especialidad: 'Medicina General'\r\n  };\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n    // Aquí podrías cargar los datos reales del paciente y su próxima cita\r\n  }\r\n\r\n  // Métodos para las acciones de la próxima cita (si usas botones con (click))\r\n  reagendarCita(): void {\r\n    console.log('Implementar lógica para reagendar cita');\r\n    // Aquí podrías navegar a la página de reagendar pasando el ID de la cita\r\n    // this.router.navigate(['/patient/reagendar-cita', this.nextAppointment.id]);\r\n  }\r\n\r\n  cancelarCita(): void {\r\n     console.log('Implementar lógica para cancelar cita');\r\n     // Aquí podrías mostrar un modal de confirmación y luego llamar a un servicio para cancelar\r\n  }\r\n}"
+        }
+    ]
+}

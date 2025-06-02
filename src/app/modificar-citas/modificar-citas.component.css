@@ -1,0 +1,231 @@
+/* Base Styles (Mobile First: for small screens) */
+
+.container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically on mobile */
+    min-height: 100vh; /* Use min-height to ensure it covers the viewport */
+    background-color: #ecf0f1; /* Light background for main content */
+}
+
+/*
+   The sidebar styles (width, background-color, etc.) should be defined in
+   sidebar-menu.component.css for your sidebar component.
+   The .main-content below will adjust its margin based on the sidebar's state.
+*/
+
+.main-content {
+    flex-grow: 1; /* Takes up the remaining space */
+    padding: 15px; /* Reduced padding for mobile */
+    margin-left: 0; /* No margin on mobile, sidebar is likely hidden */
+    width: 100%; /* Occupy full width on mobile */
+    box-sizing: border-box; /* Include padding in width calculation */
+    overflow-y: auto; /* Add scroll if content overflows vertically */
+}
+
+/* Classes to adjust main-content margin based on sidebar state (controlled by Angular) */
+.main-content.sidebar-hidden {
+    margin-left: 0 !important; /* Ensure no margin when sidebar is fully hidden */
+}
+
+.main-content.sidebar-collapsed {
+    margin-left: 80px; /* Margin for collapsed sidebar (icons only) */
+}
+
+
+.header {
+    display: flex;
+    flex-direction: column; /* Stack header elements on mobile */
+    align-items: flex-start; /* Align header items to start */
+    margin-bottom: 20px; /* Reduced margin for mobile */
+    padding-bottom: 10px; /* Reduced padding for mobile */
+    border-bottom: 1px solid #bdc3c7; /* Separator line */
+}
+
+.header h2 {
+    margin: 0 0 10px 0; /* Add margin below title when stacked */
+    font-size: 20px; /* Smaller font size for mobile */
+    color: #333;
+    text-align: center; /* Center align title */
+    width: 100%; /* Ensure title takes full width for centering */
+}
+
+.new-cita-button {
+    background-color: #3498db; /* Bright blue button */
+    color: white;
+    border: none;
+    padding: 8px 15px; /* Reduced padding for mobile */
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px; /* Smaller font size for mobile */
+    transition: background-color 0.3s ease;
+    width: 100%; /* Full width button on mobile */
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.new-cita-button:hover {
+    background-color: #2980b9; /* Darker blue on hover */
+}
+
+.cita-table-container {
+    background-color: white;
+    padding: 15px; /* Reduced padding for mobile */
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    overflow-x: auto; /* Enable horizontal scroll for table on small screens */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; /* Remove space between borders */
+    min-width: 600px; /* Minimum width for the table to prevent squishing */
+    font-size: 14px; /* Smaller font size for table on mobile */
+}
+
+th, td {
+    text-align: left;
+    padding: 10px 12px; /* Reduced padding for table cells */
+    border-bottom: 1px solid #ddd; /* Light gray border */
+    white-space: nowrap; /* Prevent text wrapping in table headers/cells if possible */
+}
+
+th {
+    background-color: #f2f2f2; /* Light gray background for headers */
+    font-weight: bold;
+    color: #555;
+}
+
+tbody tr:hover {
+    background-color: #f9f9f9; /* Slight highlight on row hover */
+}
+
+.action-link {
+    text-decoration: none;
+    margin-right: 8px; /* Reduced margin for mobile */
+    font-size: 12px; /* Smaller font size for action links */
+    display: inline-block; /* Ensure padding/margin apply correctly */
+    margin-bottom: 5px; /* Add slight bottom margin to stack links if needed */
+}
+
+.action-link:last-child {
+    margin-right: 0; /* Remove right margin from the last link in a group */
+}
+
+.action-link.edit {
+    color: #3498db; /* Blue for edit */
+}
+
+.action-link.delete {
+    color: #e74c3c; /* Red for delete */
+}
+
+.action-link:hover {
+    text-decoration: underline;
+}
+
+/* --- Media Queries for Tablets and Desktops --- */
+
+/* Tablets and small desktops (768px to 1024px) */
+@media (min-width: 768px) {
+    .main-content {
+        padding: 30px; /* Intermediate padding */
+        margin-left: 250px; /* Default margin for expanded sidebar */
+    }
+
+    /* Adjust main-content margin based on sidebar state (Angular-controlled) */
+    .main-content.sidebar-hidden {
+        margin-left: 0 !important;
+    }
+
+    .main-content.sidebar-collapsed {
+        margin-left: 80px;
+    }
+
+    .header {
+        flex-direction: row; /* Layout header elements in a row */
+        justify-content: space-between; /* Space between title and button */
+        align-items: center; /* Align items to center */
+        margin-bottom: 25px;
+        padding-bottom: 15px;
+    }
+
+    .header h2 {
+        margin: 0; /* Remove specific mobile margin */
+        font-size: 22px; /* Intermediate font size */
+        text-align: left; /* Align title to left */
+        width: auto; /* Allow title to take its natural width */
+    }
+
+    .new-cita-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        width: auto; /* Button takes natural width */
+    }
+
+    .cita-table-container {
+        padding: 20px;
+    }
+
+    table {
+        min-width: auto; /* Allow table to adjust naturally */
+        font-size: 15px;
+    }
+
+    th, td {
+        padding: 12px 15px;
+    }
+
+    .action-link {
+        margin-right: 10px;
+        font-size: 14px;
+        margin-bottom: 0; /* Remove bottom margin for inline links */
+    }
+}
+
+/* Large Desktops (more than 1024px) */
+@media (min-width: 1025px) {
+    .main-content {
+        padding: 40px; /* Restore original padding */
+        margin-left: 25%; /* Margin for expanded sidebar (e.g., 25% or 250px) */
+    }
+
+    /* Keep sidebar state adjustments */
+    .main-content.sidebar-hidden {
+        margin-left: 0 !important;
+    }
+
+    .main-content.sidebar-collapsed {
+        margin-left: 80px;
+    }
+
+    .header {
+        margin-bottom: 30px;
+    }
+
+    .header h2 {
+        font-size: 24px; /* Restore original font size */
+    }
+
+    .new-cita-button {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .cita-table-container {
+        padding: 20px;
+    }
+
+    table {
+        font-size: 16px; /* Restore original table font size */
+    }
+
+    th, td {
+        padding: 12px 15px;
+    }
+
+    .action-link {
+        margin-right: 10px;
+        font-size: 14px;
+    }
+}

@@ -1,0 +1,233 @@
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5;
+  padding: 20px; /* Add some padding for very small screens */
+  box-sizing: border-box; /* Include padding in element's total width/height */
+}
+
+.register-card {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%; /* Make width fluid */
+  max-width: 500px; /* Set a max-width for larger screens */
+  box-sizing: border-box; /* Include padding in element's total width/height */
+}
+
+.register-header {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.register-header h1 {
+  color: #1877f2;
+  margin-bottom: 5px;
+  font-size: 1.8em; /* Adjust font size for responsiveness */
+}
+
+.register-header p {
+  color: #657786;
+  font-size: 0.9em;
+}
+
+.register-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-row {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 20px;
+  /* By default, keep it as a row for larger screens */
+}
+
+.form-group {
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #1c1e21;
+  font-weight: bold;
+  font-size: 0.95em;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1em;
+  box-sizing: border-box;
+}
+
+.date-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.date-input-container input[type="text"] {
+  width: 100%;
+  padding-right: 35px; /* Espacio para el icono del calendario */
+}
+
+.calendar-button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #657786;
+}
+
+.calendar-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-container input[type="password"] {
+  padding-right: 35px; /* Espacio para el botón de mostrar/ocultar */
+}
+
+.password-toggle-button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #657786;
+  font-size: 1.1em;
+}
+
+.accept-terms {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 0.9em;
+}
+
+.accept-terms input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.terms-link {
+  color: #1877f2;
+  text-decoration: none;
+}
+
+.terms-link:hover {
+  text-decoration: underline;
+}
+
+.register-button {
+  background-color: #1877f2;
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1.1em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: #1665c8;
+}
+
+.register-footer {
+  text-align: center;
+  margin-top: 25px;
+  font-size: 0.9em;
+  color: #657786;
+}
+
+.login-link {
+  color: #1877f2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* For screens smaller than 768px (common tablet/mobile breakpoint) */
+@media (max-width: 768px) {
+  .register-card {
+    padding: 20px; /* Reduce padding on smaller screens */
+  }
+
+  .register-header h1 {
+    font-size: 1.6em; /* Slightly smaller heading on tablets */
+  }
+
+  .form-row {
+    flex-direction: column; /* Stack form groups vertically */
+    gap: 0; /* Remove gap when stacking */
+  }
+
+  .form-group {
+    margin-bottom: 15px; /* Adjust margin between stacked groups */
+  }
+
+  /* Adjustments for inputs if needed, though 100% width is generally good */
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"],
+  .form-group input[type="password"] {
+    padding: 10px;
+  }
+}
+
+/* For screens smaller than 480px (common mobile breakpoint) */
+@media (max-width: 480px) {
+  .register-container {
+    padding: 10px; /* Even less padding on very small screens */
+  }
+
+  .register-card {
+    padding: 15px; /* Further reduce padding inside the card */
+    border-radius: 5px; /* Slightly smaller border-radius */
+  }
+
+  .register-header h1 {
+    font-size: 1.4em; /* Smaller heading on phones */
+  }
+
+  .register-header p {
+    font-size: 0.8em; /* Smaller subtext on phones */
+  }
+
+  .register-button {
+    font-size: 1em; /* Slightly smaller button text */
+    padding: 10px;
+  }
+
+  .accept-terms,
+  .register-footer {
+    font-size: 0.8em; /* Smaller text for terms and footer */
+  }
+}

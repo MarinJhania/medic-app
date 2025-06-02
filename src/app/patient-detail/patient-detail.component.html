@@ -1,0 +1,27 @@
+<div class="patient-detail-container">
+  <app-sidebar-menu></app-sidebar-menu>
+
+  <main class="main-content">
+    <button routerLink="/doctor/patients" class="volver-button">← Volver</button>
+    <div class="patient-info">
+      <h2>Historial del Paciente</h2>
+      <div class="info-row">
+        <span class="label">Nombre:</span>
+        <span class="value">{{ patient?.nombre }}</span>
+      </div>
+      <div class="info-row">
+        <span class="label">Edad:</span>
+        <span class="value">{{ patient?.edad }} años</span>
+      </div>
+    </div>
+
+    <div class="consultation-history">
+      <h3>Historial de Consultas</h3>
+      </div>
+
+    <div class="actions">
+      <button [routerLink]="['/doctor/appointments']" class="action-button agendar">Agendar Nueva Cita</button>
+      <button class="action-button enviar">Enviar Recordatorio</button>
+    </div>
+  </main>
+</div>

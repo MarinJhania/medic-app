@@ -1,0 +1,513 @@
+/* patient-sidebar-menu.component.css */
+
+/* --------------------------------------------------- */
+/* Estilos Base del Sidebar */
+/* --------------------------------------------------- */
+.sidebar {
+    background-color: #1e3a5f; /* Color de fondo */
+    color: #fff;
+    padding: 20px;
+    flex-shrink: 0; /* Evita que el sidebar se encoja */
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100vh; /* Ocupa toda la altura de la ventana */
+    z-index: 100; /* Asegura que esté por encima de otros elementos */
+    overflow-y: auto; /* Permite desplazamiento si el contenido es largo */
+    box-sizing: border-box; /* Incluye padding y borde en el ancho/alto */
+    display: flex;
+    flex-direction: column; /* Organiza los elementos verticalmente */
+    align-items: flex-start; /* Alinea los elementos a la izquierda */
+    transition: width 0.3s ease-in-out, transform 0.3s ease-in-out, padding 0.3s ease-in-out;
+    width: 400px; /* Ancho por defecto para escritorios grandes */
+    min-width: 250px; /* Added for better control on larger screens */
+}
+
+/* --------------------------------------------------- */
+/* Estados del Sidebar (controlados por las clases de Angular) */
+/* --------------------------------------------------- */
+
+/* Estado: Sidebar COMPLETAMENTE OCULTO (hidden) */
+.sidebar.hidden {
+    transform: translateX(-100%);
+    width: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+/* Estado: Sidebar COLAPSADO (collapsed) */
+.sidebar.collapsed {
+    width: 60px; /* Ancho reducido para el estado colapsado */
+    padding: 20px 0.5em; /* Ajuste de padding para colapsado */
+    align-items: center; /* Centra los ítems al colapsar */
+    min-width: 60px; /* Ensures it doesn't shrink smaller than collapsed state */
+}
+
+/* Estado: Sidebar VISIBLE EN MÓVIL (visible-mobile) - Aplica solo en media query de móvil */
+/* Nota: Las propiedades de transform se manejan en la media query específica para móvil */
+
+/* --------------------------------------------------- */
+/* Estilos del Botón de Alternancia (Toggle Button) DENTRO del Sidebar */
+/* --------------------------------------------------- */
+.menu-toggle { /* Renombrado de .sidebar-toggle-button a .menu-toggle */
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2.8rem; /* Tamaño para el carácter ☰ */
+    cursor: pointer;
+    padding: 10px;
+    align-self: flex-end; /* Alinea a la derecha del sidebar */
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+    display: flex; /* Para centrar el carácter ☰ */
+    justify-content: center;
+    align-items: center;
+    width: 50px; /* Área clicable */
+    height: 50px; /* Área clicable */
+    order: -1; /* Mueve el botón al principio del flex container */
+    margin-right: -10px; /* Ajuste visual */
+    /* Por defecto, este botón es visible, se ocultará en móvil con media query */
+}
+
+.menu-toggle:hover {
+    color: #a9d9ff;
+}
+
+/* --------------------------------------------------- */
+/* NUEVOS ESTILOS: Botón de Menú Flotante para Móviles (FUERA del Sidebar) */
+/* --------------------------------------------------- */
+.mobile-menu-button-container {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 101;
+    display: none; /* Por defecto oculto, se mostrará solo en móvil */
+}
+
+.mobile-toggle-button {
+    background-color: #1e3a5f;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2.2rem; /* Tamaño para el carácter ☰ en el botón flotante */
+    cursor: pointer;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+}
+
+.mobile-toggle-button:hover {
+    background-color: #445c77;
+}
+
+/* --- Capa de superposición para móviles cuando el menú está abierto --- */
+.mobile-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5); /* Semitransparente */
+    z-index: 99; /* Por debajo del sidebar, pero por encima del contenido */
+    opacity: 0; /* Oculto por defecto */
+    visibility: hidden; /* Oculto por defecto */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Transición para aparecer/desaparecer */
+}
+
+/* Este se controla por el *ngIf en el HTML, no directamente por una clase CSS */
+/* .mobile-overlay.visible {
+    opacity: 1;
+    visibility: visible;
+    display: block;
+} */
+
+
+/* --------------------------------------------------- */
+/* Estilos del Logo */
+/* --------------------------------------------------- */
+.sidebar .logo {
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 1; /* By default visible */
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.sidebar.collapsed .logo { /* Modified from .sidebar.collapsed .logo span */
+    opacity: 0; /* Oculta el texto del logo al colapsar */
+    visibility: hidden;
+    width: 0; /* Colapsa el ancho para el logo */
+}
+
+
+/* --------------------------------------------------- */
+/* Estilos de Navegación Principal */
+/* --------------------------------------------------- */
+.sidebar .main-nav {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.sidebar .main-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+}
+
+.sidebar .main-nav ul li {
+    margin-bottom: 15px;
+}
+
+.sidebar .main-nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    padding: 15px 20px;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s, padding 0.3s ease-in-out;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar .main-nav ul li a .icon {
+    margin-right: 15px;
+    font-size: 2.5rem;
+    transition: margin-right 0.3s ease-in-out;
+}
+
+.sidebar .main-nav ul li a:hover,
+.sidebar .main-nav ul li a.active {
+    background-color: #445c77;
+    color: #fff;
+}
+
+.sidebar.collapsed .main-nav ul li a .text { /* Assuming you wrap text in <span class="text"> */
+    display: none;
+}
+/* This is a more robust way to hide the text while keeping the icon */
+.sidebar.collapsed .main-nav ul li a:not(.icon) { /* Selects the <a> element itself */
+    font-size: 0; /* Hides text for elements that are not icons directly */
+}
+
+
+.sidebar.collapsed .main-nav ul li a {
+    padding: 1em 0.5em;
+    justify-content: center;
+}
+
+.sidebar.collapsed .main-nav ul li a .icon {
+    margin-right: 0;
+}
+
+
+/* --------------------------------------------------- */
+/* Estilos de Cerrar Sesión */
+/* --------------------------------------------------- */
+.sidebar .logout {
+    margin-top: auto;
+    width: 100%;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.sidebar .logout a {
+    color: #f8d7da;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    padding: 15px 20px;
+    border-radius: 8px;
+    transition: background 0.3s, color 0.3s, padding 0.3s ease-in-out;
+    width: 100%;
+    box-sizing: border-box;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.sidebar .logout a .icon {
+    margin-right: 15px;
+    font-size: 2.5rem;
+    transition: margin-right 0.3s ease-in-out;
+}
+
+.sidebar .logout a:hover {
+    background-color: #c0392b;
+    color: #fff;
+}
+
+.sidebar.collapsed .logout a .text { /* Assuming you wrap text in <span class="text"> */
+    display: none;
+}
+.sidebar.collapsed .logout a:not(.icon) { /* Selects the <a> element itself */
+    font-size: 0; /* Hides text for elements that are not icons directly */
+}
+
+.sidebar.collapsed .logout a {
+    padding: 1em 0.5em;
+    justify-content: center;
+}
+
+.sidebar.collapsed .logout a .icon {
+    margin-right: 0;
+}
+
+
+/* --------------------------------------------------- */
+/* Estilos del Contenido Principal (main-content) */
+/* --------------------------------------------------- */
+.main-content {
+    margin-left: 400px; /* Base para escritorio grande */
+    padding: 20px;
+    transition: margin-left 0.3s ease-in-out, width 0.3s ease-in-out;
+    box-sizing: border-box;
+    width: calc(100% - 400px);
+    min-height: 100vh;
+}
+
+/* Ajuste del main-content cuando el sidebar está oculto */
+.main-content.hidden { /* Changed from sidebar-hidden to hidden */
+    margin-left: 0;
+    width: 100%;
+}
+
+/* Ajuste del main-content cuando el sidebar está colapsado */
+.main-content.collapsed { /* Changed from sidebar-collapsed to collapsed */
+    margin-left: 60px;
+    width: calc(100% - 60px);
+}
+
+/* --------------------------------------------------- */
+/* Media Queries para Responsividad */
+/* --------------------------------------------------- */
+
+/* Móviles (menos de 768px) */
+@media (max-width: 767px) {
+    .sidebar {
+        width: 280px;
+        transform: translateX(-100%);
+        padding: 15px;
+        min-width: unset;
+    }
+
+    .sidebar.hidden { /* This state is the default on mobile before opening */
+        transform: translateX(-100%);
+        width: 0; /* Can be width: 280px to be ready to slide in */
+        padding: 0; /* Can be padding: 15px to be ready */
+        overflow: hidden;
+    }
+
+    .sidebar.visible-mobile { /* This state is when the sidebar is open on mobile */
+        transform: translateX(0);
+        background-color: rgba(30, 58, 95, 0.95);
+        padding: 15px;
+        width: 280px; /* Explicitly set width when visible */
+    }
+
+    .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 15px;
+    }
+
+    .menu-toggle { /* Hides the internal sidebar button on mobile */
+        display: none; 
+    }
+
+    .mobile-menu-button-container {
+        display: flex; /* Shows the floating button on mobile */
+    }
+}
+
+/* Tabletas y Escritorios Pequeños (entre 768px y 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .sidebar {
+        width: 60px; /* Collapsed by default */
+        padding: 10px;
+        align-items: center;
+        transform: translateX(0); /* Always visible in this range */
+        min-width: 60px;
+    }
+
+    .sidebar.hidden { /* Allows hiding even in this range */
+        transform: translateX(-100%);
+        width: 0;
+        padding: 0;
+    }
+
+    .main-content {
+        margin-left: 60px;
+        width: calc(100% - 60px);
+        padding: 20px;
+    }
+
+    .main-content.hidden { /* Adjust content if sidebar is hidden in this range */
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .sidebar .logo {
+        opacity: 0;
+        visibility: hidden;
+        width: 0;
+    }
+    .sidebar .main-nav ul li a span:not(.icon),
+    .sidebar .logout a span:not(.icon) {
+        display: none;
+    }
+    .sidebar .main-nav ul li a,
+    .sidebar .logout a {
+        padding: 1em 0.5em;
+        justify-content: center;
+    }
+    .sidebar .main-nav ul li a .icon,
+    .sidebar .logout a .icon {
+        margin-right: 0;
+    }
+
+    .menu-toggle { /* Shows the internal sidebar button */
+        display: flex; 
+    }
+
+    .mobile-menu-button-container {
+        display: none; /* Hides the floating button */
+    }
+}
+
+/* Escritorios Grandes (más de 1024px) */
+@media (min-width: 1025px) {
+    .sidebar {
+        width: 400px; /* Expanded by default */
+        transform: translateX(0);
+        padding: 20px;
+        align-items: flex-start;
+        min-width: 250px;
+    }
+
+    .sidebar.collapsed {
+        width: 60px;
+        padding: 20px 0.5em;
+        align-items: center;
+        min-width: 60px;
+    }
+
+    .sidebar.hidden {
+        transform: translateX(-100%);
+        width: 0;
+        padding: 0;
+    }
+
+    .main-content {
+        margin-left: 400px;
+        width: calc(100% - 400px);
+    }
+
+    .main-content.collapsed {
+        margin-left: 60px;
+        width: calc(100% - 60px);
+    }
+
+    .main-content.hidden {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .sidebar .logo { /* Corrected from .sidebar .logo span */
+        opacity: 1;
+        visibility: visible;
+        width: 100%;
+    }
+
+    .sidebar.collapsed .logo { /* Specific rule for collapsed logo */
+        opacity: 0;
+        visibility: hidden;
+        width: 0;
+    }
+
+    .sidebar .main-nav ul li a span:not(.icon),
+    .sidebar .logout a span:not(.icon) {
+        display: inline; /* Show text by default */
+    }
+    .sidebar.collapsed .main-nav ul li a span:not(.icon),
+    .sidebar.collapsed .logout a span:not(.icon) {
+        display: none; /* Hide text when collapsed */
+    }
+
+    .sidebar .main-nav ul li a,
+    .sidebar .logout a {
+        padding: 15px 20px; /* Restore default padding */
+        justify-content: flex-start; /* Restore default alignment */
+    }
+    .sidebar.collapsed .main-nav ul li a,
+    .sidebar.collapsed .logout a {
+        padding: 1em 0.5em; /* Specific padding for collapsed */
+        justify-content: center; /* Center for collapsed */
+    }
+
+
+    .sidebar .main-nav ul li a .icon,
+    .sidebar .logout a .icon {
+        margin-right: 15px; /* Default margin for icon */
+    }
+    .sidebar.collapsed .main-nav ul li a .icon,
+    .sidebar.collapsed .logout a .icon {
+        margin-right: 0; /* No margin when collapsed */
+    }
+
+    .menu-toggle { /* Shows the internal sidebar button */
+        display: flex;
+    }
+
+    .mobile-menu-button-container {
+        display: none; /* Hides the floating button */
+    }
+}
+
+/* --------------------------------------------------- */
+/* Estilos para los íconos (emojis o Material Icons) */
+/* --------------------------------------------------- */
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    -webkit-font-smoothing: antialiased;
+}
+
+.sidebar .main-nav ul li a .icon,
+.sidebar .logout a .icon {
+    font-size: 2.5rem;
+    margin-right: 15px;
+}
+
+/* Ensure these are commented out if you're NOT using Material Icons for toggle buttons */
+/*
+.menu-toggle .material-icons,
+.mobile-toggle-button .material-icons {
+    font-size: 2.2rem;
+}
+*/

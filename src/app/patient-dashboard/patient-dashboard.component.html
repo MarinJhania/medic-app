@@ -1,0 +1,64 @@
+<div class="container">
+  <app-patient-sidebar-menu></app-patient-sidebar-menu>
+
+  <div class="main-content">
+    <h2 class="welcome-title">Bienvenido, Juan</h2>
+
+    <div class="cards-container">
+      <div class="card">
+        <div class="card-icon">📅</div>
+        <div class="card-title">Agendar Cita</div>
+        <div class="card-description">Programa una consulta</div>
+        <a [routerLink]="['/patient/agendar']" class="card-link"></a>
+      </div>
+
+      <div class="card">
+         <div class="card-icon">🔄</div>
+         <div class="card-title">Historial</div>
+         <div class="card-description">Ver consultas pasadas</div>
+         <a [routerLink]="['/patient/historial']" class="card-link"></a>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">👤</div>
+        <div class="card-title">Datos</div>
+        <div class="card-description">Actualiza tu información</div>
+        <a [routerLink]="['/patient/datos']" class="card-link"></a>
+      </div>
+
+      <div class="card">
+         <div class="card-icon">🔔</div>
+         <div class="card-title">Recordatorios</div>
+         <div class="card-description">Próximas citas</div>
+         <a [routerLink]="['/patient/recordatorios']" class="card-link"></a>
+      </div>
+    </div>
+
+    <div class="next-appointment-container">
+      <h3>Próxima Cita</h3>
+      <div class="appointment-details">
+        <div class="detail-item">
+          <span class="detail-label">Fecha</span>
+          <span class="detail-value">15 de Junio, 2023</span>
+        </div>
+         <div class="detail-item">
+          <span class="detail-label">Hora</span>
+          <span class="detail-value">10:00 AM</span>
+        </div>
+         <div class="detail-item">
+          <span class="detail-label">Doctor</span>
+          <span class="detail-value">Dr. García</span>
+        </div>
+         <div class="detail-item">
+          <span class="detail-label">Especialidad</span>
+          <span class="detail-value">Medicina General</span>
+         </div>
+      </div>
+      <div class="appointment-actions">
+        <button class="action-button reschedule-button" [routerLink]="['/patient/view']">Reagendar</button>
+        <button class="action-button cancel-button">Cancelar</button>
+      </div>
+    </div>
+
+  </div>
+</div>

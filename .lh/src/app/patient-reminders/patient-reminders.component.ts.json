@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/patient-reminders/patient-reminders.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1747632810830,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1747632810830,
+            "name": "Commit-0",
+            "content": "// patient-reminders.component.ts\r\n\r\nimport { Component, OnInit } from '@angular/core';\r\nimport { CommonModule } from '@angular/common'; // Para *ngIf, *ngFor, [ngClass]\r\nimport { PatientSidebarMenuComponent } from '../patient-sidebar-menu/patient-sidebar-menu.component'; // Tu menú lateral\r\nimport { Router, RouterModule } from '@angular/router'; // Si necesitas navegar\r\n\r\n@Component({\r\n  selector: 'app-patient-reminders',\r\n  standalone: true, // <--- Marca como standalone\r\n  imports: [\r\n    CommonModule, // Necesario para *ngFor, *ngIf, [ngClass]\r\n    PatientSidebarMenuComponent,\r\n    RouterModule // Si usas Router\r\n    // Importa otros componentes o módulos que uses\r\n  ],\r\n  templateUrl: './patient-reminders.component.html',\r\n  styleUrls: ['./patient-reminders.component.css']\r\n})\r\nexport class PatientRemindersComponent implements OnInit {\r\n\r\n  // Lista de recordatorios próximos\r\n  upcomingReminders: any[] = [\r\n    // Datos de ejemplo (en una app real, esto vendría de un servicio/API)\r\n    {\r\n      id: 1,\r\n      doctor: 'Dr. García Martínez',\r\n      date: '14 de noviembre de 2023',\r\n      time: '09:00',\r\n      method: 'correo', // 'correo' o 'SMS'\r\n      status: 'Enviado' // 'Enviado' o 'Pendiente'\r\n    },\r\n    {\r\n      id: 2,\r\n      doctor: 'Dra. Rodríguez López',\r\n      date: '19 de noviembre de 2023',\r\n      time: '10:30',\r\n      method: 'SMS', // 'correo' o 'SMS'\r\n      status: 'Pendiente' // 'Enviado' o 'Pendiente'\r\n    }\r\n    // ... más recordatorios ...\r\n  ];\r\n\r\n  constructor(private router: Router) { } // Inyecta Router si necesitas navegar\r\n\r\n  ngOnInit(): void {\r\n    // Aquí cargarías los recordatorios reales del paciente desde un servicio\r\n    // Ejemplo: this.reminderService.getUpcomingReminders(patientId).subscribe(data => this.upcomingReminders = data);\r\n  }\r\n\r\n  // Función para obtener la clase de icono según el método de recordatorio\r\n  getReminderMethodIcon(method: string): string {\r\n    switch (method.toLowerCase()) { // Convertir a minúsculas para comparar\r\n      case 'correo':\r\n        return 'fas fa-envelope'; // Icono de sobre\r\n      case 'sms':\r\n        return 'fas fa-mobile-alt'; // Icono de móvil\r\n      default:\r\n        return 'fas fa-question-circle'; // Icono por defecto si el método es desconocido\r\n    }\r\n  }\r\n\r\n  // Si los ítems de recordatorio fueran clickeables, aquí manejarías el clic\r\n  // handleClickReminder(reminder: any): void {\r\n  //    console.log('Clic en recordatorio:', reminder);\r\n  //    // Podrías navegar a los detalles de la cita asociada si tuvieran un relatedAppointmentId\r\n  //    // this.router.navigate(['/patient/appointment-details', reminder.relatedAppointmentId]);\r\n  // }\r\n\r\n}"
+        }
+    ]
+}

@@ -1,0 +1,200 @@
+/* patient-reminders.component.css */
+
+/* Contenedor principal (igual que en otras vistas con sidebar fijo) */
+.dashboard-container {
+    display: flex;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+     /* >>>>>>>> Ajusta este margin-left para que coincida con el 'width' de tu sidebar <<<<<<<< */
+    margin-left: 400px; /* Ejemplo: si tu sidebar tiene 400px */
+    background-color: #f4f7f6;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal de la sección de recordatorios */
+.reminders-section {
+     /* Si quieres un panel blanco como en la imagen: */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: #1e3a5f;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de la lista de recordatorios */
+.upcoming-reminders-container {
+    margin-top: 15px;
+}
+
+/* Encabezado de la lista (ej: Próximos Recordatorios) */
+.list-header {
+    display: flex;
+    align-items: center;
+    font-size: 1.4rem; /* Tamaño del título de la lista */
+    color: #1e3a5f; /* Color del título de la lista */
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #eee; /* Línea bajo el título de la lista */
+}
+
+.list-header .header-icon {
+    font-size: 1.6rem; /* Tamaño del icono en el encabezado */
+    margin-right: 10px; /* Espacio entre icono y texto */
+    color: #1e3a5f;
+}
+
+.list-header .list-title {
+    font-weight: bold;
+}
+
+
+/* Estilo para cada ítem de recordatorio individual */
+.reminder-item {
+    display: flex; /* Alinea icono, contenido y estado */
+    align-items: flex-start; /* Alinea arriba */
+    padding: 15px;
+    border: 1px solid #eee;
+    border-left: 5px solid #1e3a5f; /* Barra lateral azul como en las citas */
+    border-radius: 4px;
+    background-color: #fff;
+    margin-bottom: 10px; /* Espacio entre recordatorios */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    /* cursor: pointer; Si quieres que sean clickeables */
+    /* transition: background-color 0.2s; */
+}
+/* Opcional: Estilo al pasar el mouse */
+/* .reminder-item:hover {
+    background-color: #f9f9f9;
+} */
+
+
+/* Estilo para el contenedor del icono principal del ítem */
+.reminder-icon-container {
+    flex-shrink: 0; /* No permite que el icono se encoja */
+    width: 30px; /* Tamaño fijo */
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px; /* Espacio entre icono y contenido */
+    font-size: 1.2rem;
+    color: #1e3a5f; /* Color del icono (azul principal) */
+    /* Si quieres un fondo circular, añádelo aquí */
+    /* border-radius: 50%; background-color: #eef; */
+}
+
+.reminder-icon-container .item-icon {
+    /* Estilos para el icono dentro del contenedor si son diferentes */
+}
+
+/* Estilo para el contenido del recordatorio */
+.reminder-content {
+    flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
+    margin-right: 15px; /* Espacio entre contenido y tag de estado */
+}
+
+.appointment-info .doctor-name {
+    font-weight: bold;
+    color: #333;
+    margin-right: 5px; /* Espacio entre doctor y fecha/hora si están en la misma línea */
+}
+
+.appointment-details .date-time {
+    font-size: 0.95rem;
+    color: #555;
+    margin-top: 3px; /* Espacio entre nombre doctor y fecha/hora si están apilados */
+    display: block; /* Asegura que fecha/hora esté en su propia línea */
+}
+
+/* Estilo para el método de recordatorio (email/sms) */
+.reminder-method {
+     display: flex; /* Alinea icono y texto */
+     align-items: center;
+     font-size: 0.85rem;
+     color: #777;
+     margin-top: 5px; /* Espacio arriba del método */
+}
+
+.reminder-method .method-icon {
+    margin-right: 5px;
+    font-size: 1rem;
+    color: #1e3a5f; /* Color del icono del método */
+}
+
+/* Estilo para el tag de estado */
+.status-tag {
+    flex-shrink: 0; /* No permite que el tag se encoja */
+    padding: 4px 8px;
+    border-radius: 12px; /* Forma de píldora */
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+    /* Colores de fondo se definen por estado */
+    align-self: center; /* Centra el tag verticalmente con el ítem */
+}
+
+/* Colores de los tags de estado */
+.status-tag.sent {
+    background-color: #28a745; /* Verde (Enviado) */
+}
+
+.status-tag.pending {
+    background-color: #ffc107; /* Amarillo/Naranja (Pendiente) */
+}
+
+
+/* Estilo para el mensaje de no recordatorios */
+.no-reminders {
+    text-align: center;
+    color: #555;
+    margin-top: 20px;
+    font-style: italic;
+     padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+
+/* Media Query para responsividad */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding-top: 80px;
+  }
+
+  .reminder-item {
+      flex-direction: column; /* Apila los elementos del recordatorio */
+      align-items: center; /* Centra horizontalmente */
+      text-align: center; /* Centra el texto */
+  }
+  .reminder-icon-container {
+      margin-right: 0;
+      margin-bottom: 10px;
+  }
+  .reminder-content {
+      margin-right: 0;
+      margin-bottom: 10px; /* Espacio antes del tag */
+  }
+  .reminder-method {
+      justify-content: center; /* Centra icono y texto del método */
+  }
+  .status-tag {
+      margin-left: 0; /* Elimina margen si está centrado */
+  }
+}

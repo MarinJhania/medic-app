@@ -1,0 +1,26 @@
+{
+    "sourceFile": "firebase.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1748227331631,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1748228007391,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,16 @@\n {\n   \"hosting\": {\n     \"public\": \"dist/medic-app\",\n-    \"ignore\": [\"firebase.json\", \"**/.*\", \"**/node_modules/**\"],\n+    \"ignore\": [\n+      \"firebase.json\",\n+      \"**/.*\",\n+      \"**/node_modules/**\"\n+    ],\n     \"rewrites\": [\n       {\n         \"source\": \"**\",\n         \"destination\": \"/index.html\"\n       }\n     ]\n   }\n }\n-\n"
+                },
+                {
+                    "date": 1748228480740,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n {\n   \"hosting\": {\n-    \"public\": \"dist/medic-app\",\n+    \"public\": \"dist/medic-app/browser\",\n     \"ignore\": [\n       \"firebase.json\",\n       \"**/.*\",\n       \"**/node_modules/**\"\n"
+                }
+            ],
+            "date": 1748227331631,
+            "name": "Commit-0",
+            "content": "{\n  \"hosting\": {\n    \"public\": \"dist/medic-app\",\n    \"ignore\": [\"firebase.json\", \"**/.*\", \"**/node_modules/**\"],\n    \"rewrites\": [\n      {\n        \"source\": \"**\",\n        \"destination\": \"/index.html\"\n      }\n    ]\n  }\n}\n\n"
+        }
+    ]
+}

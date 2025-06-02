@@ -1,0 +1,295 @@
+/* patient-detail.component.css */
+
+/* --- Estilos base (Mobile First: para pantallas pequeñas) --- */
+
+.patient-detail-container {
+    display: flex;
+    flex-direction: column; /* Apila el contenido para móviles */
+    min-height: 100vh;
+    background-color: #f4f6f8;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 1em; /* Reduce el padding para móviles */
+    margin-left: 0; /* En móviles, el contenido principal ocupa todo el ancho */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+}
+
+/* Clases para ajustar el margen del main-content según el estado del sidebar */
+/* Asumo que estas clases son manejadas por tu componente Angular para el sidebar */
+.main-content.sidebar-hidden {
+    margin-left: 0 !important; /* Sobreescribe cualquier margen si el sidebar está oculto */
+}
+
+.main-content.sidebar-collapsed {
+    margin-left: 80px; /* Margen para cuando el sidebar está colapsado */
+}
+
+
+.volver-button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: none;
+    padding: 0.7em 1.2em; /* Padding ajustado */
+    border-radius: 0.4em; /* Bordes ligeramente más pequeños */
+    cursor: pointer;
+    font-size: 0.9em; /* Fuente más pequeña */
+    margin-bottom: 1.5em; /* Margen más pequeño */
+    transition: background-color 0.3s ease;
+    display: block; /* Para que ocupe todo el ancho disponible si es necesario */
+    width: fit-content; /* Se ajusta al contenido */
+    margin-left: auto; /* Centra el botón si es necesario */
+    margin-right: auto; /* Centra el botón si es necesario */
+}
+
+.volver-button:hover {
+    background-color: #e0e0e0;
+}
+
+.patient-info {
+    background-color: white;
+    padding: 1.5em; /* Reduce el padding */
+    border-radius: 0.5em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5em; /* Reduce el margen */
+}
+
+.patient-info h2 {
+    color: #333;
+    margin-bottom: 1em; /* Reduce el margen */
+    font-size: 1.6em; /* Tamaño de título más pequeño */
+    text-align: center; /* Centra el título en móviles */
+}
+
+.info-row {
+    display: flex;
+    flex-direction: column; /* Apila etiquetas y valores para mejor lectura en móviles */
+    gap: 0.2em; /* Espacio más pequeño entre elementos apilados */
+    margin-bottom: 0.8em;
+    font-size: 0.9em; /* Fuente más pequeña */
+}
+
+.info-row .label {
+    font-weight: bold;
+    color: #555;
+    min-width: unset; /* Deshace el min-width en móviles */
+}
+
+.info-row .value {
+    color: #333;
+}
+
+.consultation-history {
+    background-color: white;
+    padding: 1.5em; /* Reduce el padding */
+    border-radius: 0.5em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5em; /* Reduce el margen */
+}
+
+.consultation-history h3 {
+    color: #333;
+    margin-bottom: 1em; /* Reduce el margen */
+    font-size: 1.4em; /* Tamaño de título más pequeño */
+    text-align: center; /* Centra el título en móviles */
+}
+
+.consultation-entry {
+    border: 1px solid #eee;
+    border-radius: 0.3em;
+    margin-bottom: 1em;
+    padding: 1em; /* Reduce el padding */
+}
+
+.consultation-entry .entry-header {
+    flex-direction: column; /* Apila fecha y médico en móviles */
+    align-items: flex-start; /* Alinea elementos al inicio */
+    margin-bottom: 0.6em; /* Reduce el margen */
+    font-size: 0.8em; /* Fuente más pequeña */
+}
+
+.consultation-entry .entry-details {
+    font-size: 0.9em; /* Fuente más pequeña */
+}
+
+.consultation-entry .notes,
+.consultation-entry .prescription {
+    margin-bottom: 0.5em; /* Reduce el margen */
+}
+
+.consultation-entry .notes .label,
+.consultation-entry .prescription .label {
+    display: block; /* Hace que la etiqueta ocupe su propia línea */
+    margin-bottom: 0.2em; /* Pequeño margen debajo de la etiqueta */
+}
+
+
+.actions {
+    display: flex;
+    flex-direction: column; /* Apila los botones en móviles */
+    gap: 0.8em; /* Espacio más pequeño entre botones apilados */
+}
+
+.action-button {
+    width: 100%; /* Botones de ancho completo para facilitar el toque */
+    padding: 0.9em 1.2em; /* Padding ajustado */
+    border-radius: 0.4em; /* Bordes ligeramente más pequeños */
+    font-size: 1em; /* Fuente ajustada */
+    text-align: center; /* Centra el texto del botón */
+}
+
+.action-button:hover {
+    background-color: #45a049;
+}
+
+.action-button.agendar {
+    background-color: #2196f3; /* Azul */
+}
+
+.action-button.agendar:hover {
+    background-color: #1976d2;
+}
+
+
+/* --- Media Queries para tabletas y escritorios --- */
+
+/* Tabletas y escritorios pequeños (768px a 1024px) */
+@media (min-width: 768px) {
+    .main-content {
+        padding: 2em; /* Padding intermedio */
+        margin-left: 250px; /* Margen para el sidebar expandido por defecto */
+    }
+
+    .main-content.sidebar-hidden {
+        margin-left: 0 !important;
+    }
+
+    .main-content.sidebar-collapsed {
+        margin-left: 80px;
+    }
+
+    .volver-button {
+        padding: 0.8em 1.5em;
+        font-size: 1em;
+        margin-bottom: 2em;
+        display: inline-block; /* Vuelve a ser inline */
+        width: auto; /* Ancho automático */
+        margin-left: unset; /* Deshace el centrado */
+        margin-right: unset;
+    }
+
+    .patient-info {
+        padding: 2em;
+        margin-bottom: 2em;
+    }
+
+    .patient-info h2 {
+        font-size: 2em;
+        margin-bottom: 1.5em;
+        text-align: left; /* Alineado a la izquierda */
+    }
+
+    .info-row {
+        flex-direction: row; /* Vuelve a la disposición horizontal */
+        gap: 1em;
+        font-size: 1.1em;
+    }
+
+    .info-row .label {
+        min-width: 80px; /* Restaura el min-width */
+    }
+
+    .consultation-history {
+        padding: 2em;
+        margin-bottom: 2em;
+    }
+
+    .consultation-history h3 {
+        font-size: 1.8em;
+        margin-bottom: 1.5em;
+        text-align: left; /* Alineado a la izquierda */
+    }
+
+    .consultation-entry {
+        padding: 1.2em;
+    }
+
+    .consultation-entry .entry-header {
+        flex-direction: row; /* Vuelve a la disposición horizontal */
+        align-items: center; /* Alinea elementos al centro */
+        margin-bottom: 0.8em;
+        font-size: 0.9em;
+    }
+
+    .consultation-entry .entry-details {
+        font-size: 1.1em;
+    }
+
+    .consultation-entry .notes .label,
+    .consultation-entry .prescription .label {
+        display: inline; /* Vuelve a ser inline */
+        margin-bottom: 0; /* Quita el margen inferior */
+    }
+
+    .actions {
+        flex-direction: row; /* Vuelve a la disposición horizontal */
+        gap: 1em;
+    }
+
+    .action-button {
+        width: auto; /* Ancho automático */
+        padding: 1em 1.5em;
+        font-size: 1em;
+    }
+}
+
+/* Escritorios grandes (más de 1024px) */
+@media (min-width: 1025px) {
+    .main-content {
+        padding: 3em; /* Restauramos el padding original */
+        margin-left: 20%; /* Margen para el sidebar expandido */
+    }
+
+    .main-content.sidebar-hidden {
+        margin-left: 0 !important;
+    }
+
+    .main-content.sidebar-collapsed {
+        margin-left: 80px;
+    }
+
+    .volver-button {
+        padding: 0.8em 1.5em;
+        font-size: 1em;
+        margin-bottom: 2em;
+    }
+
+    .patient-info h2 {
+        font-size: 2em;
+        margin-bottom: 1.5em;
+    }
+
+    .info-row {
+        font-size: 1.1em;
+    }
+
+    .consultation-history h3 {
+        font-size: 1.8em;
+        margin-bottom: 1.5em;
+    }
+
+    .consultation-entry {
+        padding: 1.2em;
+    }
+
+    .consultation-entry .entry-details {
+        font-size: 1.1em;
+    }
+
+    .action-button {
+        padding: 1em 1.5em;
+        font-size: 1em;
+    }
+}

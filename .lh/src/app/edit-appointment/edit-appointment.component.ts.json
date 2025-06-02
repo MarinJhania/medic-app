@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/edit-appointment/edit-appointment.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1747561529094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1747561529094,
+            "name": "Commit-0",
+            "content": "import { Component, OnInit } from '@angular/core';\r\nimport { SidebarMenuComponent } from '../sidebar-menu/sidebar-menu.component';\r\nimport { CommonModule } from '@angular/common';\r\nimport { ActivatedRoute } from '@angular/router';\r\nimport { FormsModule } from '@angular/forms'; // Import FormsModule for form handling\r\n\r\n@Component({\r\n  selector: 'app-edit-appointment',\r\n  standalone: true,\r\n  imports: [CommonModule, SidebarMenuComponent, FormsModule], // Import FormsModule\r\n  templateUrl: './edit-appointment.component.html',\r\n  styleUrls: ['./edit-appointment.component.css']\r\n})\r\nexport class EditAppointmentComponent implements OnInit {\r\n  appointmentId: string | null = null;\r\n  appointment: any = { // Placeholder for appointment details\r\n    fecha: '',\r\n    hora: '',\r\n    paciente: '',\r\n    motivo: ''\r\n  };\r\n\r\n  constructor(private route: ActivatedRoute) { }\r\n\r\n  ngOnInit(): void {\r\n    this.route.params.subscribe(params => {\r\n      this.appointmentId = params['id'];\r\n      // In a real application, you would fetch the appointment details\r\n      // using this.appointmentId from a service.\r\n      console.log('Editing appointment ID:', this.appointmentId);\r\n      this.loadAppointmentDetails(this.appointmentId);\r\n    });\r\n  }\r\n\r\n  loadAppointmentDetails(id: string | null): void {\r\n    // Simulate loading appointment details\r\n    this.appointment = { fecha: '2023-08-20', hora: '09:00', paciente: 'María López', motivo: 'Control mensual' };\r\n  }\r\n\r\n  saveAppointment(): void {\r\n    console.log('Saving appointment:', this.appointment);\r\n    // Implement logic to save the updated appointment details\r\n  }\r\n\r\n  cancelEdit(): void {\r\n    console.log('Cancelling edit');\r\n    // Implement logic to navigate back to the appointments list\r\n  }\r\n}"
+        }
+    ]
+}

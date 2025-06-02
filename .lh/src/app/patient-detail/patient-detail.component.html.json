@@ -1,0 +1,26 @@
+{
+    "sourceFile": "src/app/patient-detail/patient-detail.component.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1747559052483,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1747560545346,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n       </div>\r\n     </div>\r\n \r\n     <div class=\"actions\">\r\n-      <button class=\"action-button agendar\">Agendar Nueva Cita</button>\r\n+      <button [routerLink]=\"['/doctor/patient', patientId]\" class=\"action-button agendar\">Agendar Nueva Cita</button>\r\n       <button class=\"action-button enviar\">Enviar Recordatorio</button>\r\n     </div>\r\n   </main>\r\n </div>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1747560744391,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,31 +16,12 @@\n     </div>\r\n \r\n     <div class=\"consultation-history\">\r\n       <h3>Historial de Consultas</h3>\r\n-      <div *ngFor=\"let consulta of patient?.historialConsultas\" class=\"consultation-entry\">\r\n-        <div class=\"entry-header\">\r\n-          <span class=\"date\">{{ consulta.fecha }}</span>\r\n-          <span class=\"type\">{{ consulta.tipo }}</span>\r\n-        </div>\r\n-        <div class=\"entry-details\">\r\n-          <div class=\"notes\">\r\n-            <span class=\"label\">Notas:</span>\r\n-            <span class=\"value\">{{ consulta.notas }}</span>\r\n-          </div>\r\n-          <div class=\"prescription\">\r\n-            <span class=\"label\">Prescripción:</span>\r\n-            <span class=\"value\">{{ consulta.prescripcion }}</span>\r\n-          </div>\r\n-        </div>\r\n       </div>\r\n-      <div *ngIf=\"!patient?.historialConsultas?.length\">\r\n-        <p>No hay historial de consultas registrado para este paciente.</p>\r\n-      </div>\r\n-    </div>\r\n \r\n     <div class=\"actions\">\r\n-      <button [routerLink]=\"['/doctor/patient', patientId]\" class=\"action-button agendar\">Agendar Nueva Cita</button>\r\n+      <button [routerLink]=\"['/doctor/appointments']\" class=\"action-button agendar\">Agendar Nueva Cita</button>\r\n       <button class=\"action-button enviar\">Enviar Recordatorio</button>\r\n     </div>\r\n   </main>\r\n </div>\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1747559052483,
+            "name": "Commit-0",
+            "content": "<div class=\"patient-detail-container\">\r\n  <app-sidebar-menu></app-sidebar-menu>\r\n\r\n  <main class=\"main-content\">\r\n    <button routerLink=\"/doctor/patients\" class=\"volver-button\">← Volver</button>\r\n    <div class=\"patient-info\">\r\n      <h2>Historial del Paciente</h2>\r\n      <div class=\"info-row\">\r\n        <span class=\"label\">Nombre:</span>\r\n        <span class=\"value\">{{ patient?.nombre }}</span>\r\n      </div>\r\n      <div class=\"info-row\">\r\n        <span class=\"label\">Edad:</span>\r\n        <span class=\"value\">{{ patient?.edad }} años</span>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"consultation-history\">\r\n      <h3>Historial de Consultas</h3>\r\n      <div *ngFor=\"let consulta of patient?.historialConsultas\" class=\"consultation-entry\">\r\n        <div class=\"entry-header\">\r\n          <span class=\"date\">{{ consulta.fecha }}</span>\r\n          <span class=\"type\">{{ consulta.tipo }}</span>\r\n        </div>\r\n        <div class=\"entry-details\">\r\n          <div class=\"notes\">\r\n            <span class=\"label\">Notas:</span>\r\n            <span class=\"value\">{{ consulta.notas }}</span>\r\n          </div>\r\n          <div class=\"prescription\">\r\n            <span class=\"label\">Prescripción:</span>\r\n            <span class=\"value\">{{ consulta.prescripcion }}</span>\r\n          </div>\r\n        </div>\r\n      </div>\r\n      <div *ngIf=\"!patient?.historialConsultas?.length\">\r\n        <p>No hay historial de consultas registrado para este paciente.</p>\r\n      </div>\r\n    </div>\r\n\r\n    <div class=\"actions\">\r\n      <button class=\"action-button agendar\">Agendar Nueva Cita</button>\r\n      <button class=\"action-button enviar\">Enviar Recordatorio</button>\r\n    </div>\r\n  </main>\r\n</div>"
+        }
+    ]
+}

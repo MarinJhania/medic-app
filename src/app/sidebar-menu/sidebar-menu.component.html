@@ -1,0 +1,60 @@
+<div class="sidebar"
+     [class.hidden]="isSidebarHidden"
+     [class.collapsed]="isSidebarCollapsed"
+     [class.visible-mobile]="isSidebarVisibleMobile">
+
+  <button class="menu-toggle" (click)="toggleSidebar()">
+    <span class="material-icons">☰</span>
+  </button>
+
+  <div class="logo">MEDIC</div>
+
+  <nav class="main-nav">
+    <ul>
+      <li>
+        <a [routerLink]="['/doctor/dashboard']" routerLinkActive="active" (click)="closeSidebarOnMobile()">
+          <span class="icon">📅</span>
+          <span>Agenda Diaria</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/doctor/patients']" routerLinkActive="active" (click)="closeSidebarOnMobile()">
+          <span class="icon">👥</span>
+          <span>Historial Pacientes</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/doctor/citas/editar']" routerLinkActive="active" (click)="closeSidebarOnMobile()">
+          <span class="icon">⏱️</span>
+          <span>Modificar Citas</span>
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/doctor/enviar-recordatorios']" routerLinkActive="active" (click)="closeSidebarOnMobile()">
+          <span class="icon">🔔</span>
+          <span>Enviar Recordatorios</span>
+        </a>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="logout">
+    <a [routerLink]="['/']" (click)="closeSidebarOnMobile()">
+      <span class="icon">➡️</span>
+      <span>Cerrar Sesión</span>
+    </a>
+  </div>
+</div>
+
+<div class="mobile-menu-button-container" *ngIf="isMobileView && !isSidebarVisibleMobile">
+  <button class="mobile-toggle-button" (click)="toggleSidebar()">
+    <span class="material-icons">☰</span>
+  </button>
+</div>
+
+<div class="mobile-overlay" *ngIf="isMobileView && isSidebarVisibleMobile" (click)="closeSidebarOnMobile()"></div>
+
+<div class="main-content"
+     [class.hidden]="isSidebarHidden"
+     [class.collapsed]="isSidebarCollapsed">
+  </div>

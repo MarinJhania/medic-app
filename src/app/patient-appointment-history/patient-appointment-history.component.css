@@ -1,0 +1,264 @@
+/* patient-appointment-history.component.css */
+
+/* Contenedor principal (igual que en otras vistas con sidebar fijo) */
+.dashboard-container {
+    display: flex;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+     /* >>>>>>>> Ajusta este margin-left para que coincida con el 'width' de tu sidebar <<<<<<<< */
+    margin-left: 400px; /* Ejemplo: si tu sidebar tiene 400px */
+    background-color: #f4f7f6;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Contenedor para el encabezado y el botón PDF */
+.header-with-button {
+    display: flex;
+    justify-content: space-between; /* Empuja el texto a la izquierda y el botón a la derecha */
+    align-items: center; /* Centra verticalmente */
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Permite que los elementos salten en móvil */
+}
+
+.header-text {
+    /* Flex-grow si quieres que ocupe más espacio */
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: #1e3a5f;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: #555;
+    /* margin-bottom: 0; Removido el margin-bottom si ya hay espacio en el div padre */
+}
+
+/* Estilo para el botón Descargar PDF */
+.btn-secondary { /* Puedes usar una clase btn ya definida o crear una nueva */
+    background-color: #007bff; /* Azul o el color que uses para botones secundarios */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+     margin-left: 10px; /* Espacio si salta de línea */
+}
+.btn-secondary:hover {
+    background-color: #0056b3;
+}
+
+
+/* Contenedor para la sección de filtros */
+.filters-container {
+    background-color: #fff;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+    border-left: 5px solid #1e3a5f; /* Barra lateral azul como las tarjetas */
+}
+
+.filters-label {
+    font-weight: bold;
+    color: #1e3a5f;
+    margin-right: 15px;
+    font-size: 1.1rem;
+}
+
+.filter-controls {
+    display: flex; /* Alinea los controles de filtro en fila */
+    align-items: center; /* Centra verticalmente */
+    gap: 20px; /* Espacio entre los controles */
+    flex-wrap: wrap; /* Permite que los controles salten de línea */
+    margin-top: 10px; /* Espacio arriba de los controles */
+}
+
+.filter-controls .form-group {
+     /* No usar flex: 1 aquí a menos que quieras que ocupen todo el ancho */
+     /* Dejar que ocupen solo el espacio necesario */
+    margin-bottom: 0; /* Elimina el margin-bottom si la fila maneja el espacio */
+     display: flex; /* Alinea label e input/select */
+     align-items: center; /* Centra verticalmente */
+     gap: 5px; /* Espacio entre label y control */
+}
+
+.filter-controls .form-group label {
+     font-weight: normal; /* Etiqueta normal en filtros */
+     color: #555;
+     margin-bottom: 0; /* Elimina el margin-bottom */
+}
+
+.filter-controls select,
+.filter-controls input[type="date"] {
+     padding: 8px 12px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     font-size: 0.9rem;
+     /* width: auto; Dejar que el contenido defina el ancho por defecto */
+     box-sizing: border-box;
+}
+
+.filter-controls .date-filter .input-with-icon input[type="date"] {
+    padding: 8px 12px 8px 30px; /* Espacio para el icono */
+}
+
+.filter-controls .input-with-icon .icon {
+     position: absolute;
+     left: 10px;
+     color: #555;
+     pointer-events: none;
+     /* Ajustar posición vertical si es necesario */
+     /* top: 50%; transform: translateY(-50%); */
+}
+
+
+/* Estilo para el contador de resultados */
+.results-count {
+    font-size: 1.1rem;
+    color: #333;
+    margin-top: 20px;
+    margin-bottom: 15px; /* Espacio antes de la lista */
+}
+
+
+/* Estilos para la lista de citas (igual que en otras vistas) */
+.appointment-list {
+    display: grid; /* O flexbox en columna */
+    gap: 15px; /* Espacio entre las tarjetas de citas */
+}
+
+/* Estilos para cada tarjeta de cita (igual que en otras vistas) */
+.appointment-card {
+    background-color: #fff;
+    padding: 15px;
+    border-left: 5px solid #1e3a5f; /* Barra lateral azul */
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.appointment-card .card-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.appointment-card .doctor-info {
+    flex-grow: 1;
+}
+
+.appointment-card .doctor-name {
+    font-weight: bold;
+    color: #1e3a5f;
+    margin-bottom: 3px;
+}
+
+.appointment-card .doctor-specialty,
+.appointment-card .appointment-type {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 3px;
+}
+
+/* Estilos para los tags de estado */
+.status-tag {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+    margin-left: 10px; /* Espacio entre info del doctor y el tag */
+}
+
+/* Colores de los tags de estado */
+.status-tag.scheduled {
+    background-color: #28a745; /* Verde */
+}
+
+.status-tag.completed {
+    background-color: #007bff; /* Azul */
+}
+
+.status-tag.cancelled {
+    background-color: #dc3545; /* Rojo */
+}
+
+
+.appointment-card .card-details {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.appointment-card .detail-item {
+    display: flex;
+    align-items: center;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.appointment-card .detail-item .icon {
+    margin-right: 5px;
+    color: #1e3a5f;
+}
+
+/* Estilo para el mensaje de no resultados */
+.no-results {
+    text-align: center;
+    color: #555;
+    margin-top: 20px;
+    font-style: italic;
+}
+
+
+/* Media Query para responsividad */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding-top: 80px;
+  }
+
+  .header-with-button {
+    flex-direction: column; /* Apila título y botón */
+    align-items: flex-start; /* Alinea todo a la izquierda */
+  }
+  .header-with-button .btn-secondary {
+    margin-top: 15px; /* Espacio entre título y botón */
+    margin-left: 0; /* Elimina el margen izquierdo */
+    width: 100%; /* Opcional: Haz que el botón ocupe todo el ancho */
+    text-align: center; /* Centra el texto si el botón es ancho */
+  }
+
+  .filter-controls {
+      flex-direction: column; /* Apila los controles de filtro */
+      gap: 15px; /* Espacio entre controles */
+      align-items: stretch; /* Estira los controles para ocupar ancho */
+  }
+   .filter-controls .form-group {
+       flex-direction: column; /* Apila label e input/select */
+       align-items: flex-start; /* Alinea a la izquierda */
+       gap: 5px; /* Espacio entre label y control */
+   }
+
+   .filter-controls select,
+   .filter-controls input[type="date"] {
+        width: 100%; /* Haz que los inputs/selects ocupen todo el ancho */
+   }
+    .filter-controls .input-with-icon {
+         width: 100%; /* Asegura que el contenedor del input con icono ocupe el 100% */
+    }
+
+}

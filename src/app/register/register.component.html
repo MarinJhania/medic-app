@@ -1,0 +1,79 @@
+<div class="register-container">
+  <div class="register-card">
+    <header class="register-header">
+      <h1>MEDIC</h1>
+      <p>Registro de Nueva Cuenta</p>
+    </header>
+
+    <div *ngIf="message" [ngClass]="{'success-message': messageType === 'success', 'error-message': messageType === 'error'}" class="message-box">
+      {{ message }}
+    </div>
+
+    <form class="register-form" (ngSubmit)="onRegisterSubmit()">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="fullName">Nombre completo</label>
+          <input type="text" id="fullName" name="fullName" [(ngModel)]="fullName" placeholder="Juan Pérez" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="juan@ejemplo.com" required>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="phone">Número de teléfono</label>
+          <input type="tel" id="phone" name="phone" [(ngModel)]="phone" placeholder="1234567890">
+        </div>
+        <div class="form-group">
+          <label for="birthDate">Fecha de nacimiento</label>
+          <div class="date-input-container">
+            <input type="date" id="birthDate" name="birthDate" [(ngModel)]="birthDate">
+            <button type="button" class="calendar-button">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="calendar-icon">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V8.25A2.25 2.25 0 015.25 6h13.5A2.25 2.25 0 0121 8.25v10.5M3 21h18M12 5.25h.75" />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Contraseña</label>
+        <div class="password-input-container">
+          <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="********" #passwordInput required>
+          <button type="button" class="password-toggle-button" #passwordToggleButton (click)="togglePasswordVisibility(passwordInput, passwordToggleButton)">
+            👁️
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirmar contraseña</label>
+        <div class="password-input-container">
+          <input type="password" id="confirmPassword" name="confirmPassword" [(ngModel)]="confirmPassword" placeholder="********" #confirmPasswordInput required>
+          <button type="button" class="password-toggle-button" #confirmPasswordToggleButton (click)="togglePasswordVisibility(confirmPasswordInput, confirmPasswordToggleButton)">
+            👁️
+          </button>
+        </div>
+      </div>
+
+      <div class="form-group accept-terms">
+        <input type="checkbox" id="acceptTerms" name="acceptTerms" [(ngModel)]="acceptTerms" required>
+        <label for="acceptTerms">
+          He leído y acepto la
+          <a [routerLink]="['/privacy-policy']" class="terms-link">política de privacidad</a> y el
+          <a [routerLink]="['/data-policy']" class="terms-link">tratamiento de datos personales</a>
+        </label>
+      </div>
+
+      <button type="submit" class="register-button">Registrarse</button>
+    </form>
+
+    <footer class="register-footer">
+      ¿Ya tienes una cuenta?
+      <a [routerLink]="['/login']" class="login-link">Iniciar sesión</a>
+    </footer>
+  </div>
+</div>

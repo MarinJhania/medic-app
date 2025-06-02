@@ -1,0 +1,223 @@
+/* Estilos base (Mobile First: para pantallas pequeñas) */
+
+.patient-history-container {
+    display: flex; /* Mantenemos flex para la estructura general */
+    flex-direction: column; /* Apila los elementos en pantallas pequeñas */
+    min-height: 100vh;
+    background-color: #f4f6f8;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 1.5em; /* Reduce el padding para móviles */
+    margin-left: 0; /* En móviles, el contenido principal ocupa todo el ancho */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+}
+
+/* Clases para ajustar el margen del main-content según el estado del sidebar */
+.main-content.sidebar-hidden {
+    margin-left: 0 !important; /* Sobreescribe cualquier margen si el sidebar está oculto */
+}
+
+.main-content.sidebar-collapsed {
+    margin-left: 80px; /* Margen para cuando el sidebar está colapsado */
+}
+
+.history-header h1 {
+    color: #333;
+    margin-bottom: 1.5em; /* Margen más pequeño para móviles */
+    font-size: 1.8em; /* Tamaño de título más pequeño para móviles */
+    font-weight: 500;
+    text-align: center; /* Centramos el título en móviles */
+}
+
+.search-bar {
+    margin-bottom: 1.5em; /* Margen más pequeño */
+    width: 90%; /* Más ancho en móviles para mejor usabilidad */
+    max-width: none; /* Sin límite de ancho máximo en móviles */
+    margin-left: auto; /* Centra la barra de búsqueda */
+    margin-right: auto; /* Centra la barra de búsqueda */
+}
+
+.search-bar input[type="text"] {
+    padding: 1em; /* Padding ajustado */
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    width: 100%;
+    font-size: 1em; /* Fuente más pequeña */
+}
+
+.patient-list {
+    background-color: white;
+    border-radius: 0.5em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    overflow: hidden; /* Asegura que el border-radius se aplique a la tabla */
+}
+
+.patient-table-container {
+    overflow-x: auto; /* Habilita el scroll horizontal para tablas grandes en móviles */
+    -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
+}
+
+.patient-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font-size: 0.9em; /* Fuente más pequeña para móviles */
+    min-width: 650px; /* Ancho mínimo para la tabla, evitando que se comprima demasiado */
+}
+
+.patient-table thead th {
+    background-color: #f9f9f9;
+    color: #555;
+    padding: 1em; /* Padding ajustado */
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Evita que los encabezados se rompan */
+}
+
+.patient-table tbody td {
+    padding: 1em; /* Padding ajustado */
+    border-bottom: 1px solid #eee;
+}
+
+.patient-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.action-button {
+    background-color: #e3f2fd;
+    color: #1e88e5;
+    border: none;
+    border-radius: 0.4em; /* Bordes ligeramente más pequeños */
+    padding: 0.8em 1.2em; /* Padding ajustado */
+    cursor: pointer;
+    font-size: 0.9em; /* Fuente ajustada */
+    margin-right: 0.5em; /* Margen ajustado */
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Evita que el texto del botón se rompa */
+    display: inline-block; /* Permite que el padding se aplique correctamente */
+    margin-bottom: 0.5em; /* Añade un pequeño margen inferior para botones apilados en móviles */
+}
+
+.action-button:last-child {
+    margin-right: 0; /* Quita el margen derecho del último botón en la fila */
+}
+
+.action-button:hover {
+    background-color: #bbdefb;
+}
+
+.action-button.new-appointment {
+    background-color: #e0f7fa;
+    color: #26a69a;
+}
+
+.action-button.new-appointment:hover {
+    background-color: #b2ebf2;
+}
+
+/* --- Media Queries para tabletas y escritorios --- */
+
+/* Tabletas y escritorios pequeños (768px a 1024px) */
+@media (min-width: 768px) {
+    .main-content {
+        padding: 3em; /* Padding intermedio */
+        margin-left: 250px; /* Margen para el sidebar expandido por defecto */
+    }
+
+    /* Asegúrate de que estas clases se apliquen con la lógica de tu componente Angular */
+    .main-content.sidebar-hidden {
+        margin-left: 0 !important;
+    }
+
+    .main-content.sidebar-collapsed {
+        margin-left: 80px;
+    }
+
+    .history-header h1 {
+        font-size: 2.2em;
+        margin-bottom: 2em;
+        text-align: left; /* Alineado a la izquierda */
+    }
+
+    .search-bar {
+        margin-bottom: 2em;
+        width: 70%; /* Vuelve a un ancho más controlado */
+        max-width: 500px; /* Ancho máximo para la barra */
+        margin-left: 0; /* Deshace el centrado */
+        margin-right: auto;
+    }
+
+    .search-bar input[type="text"] {
+        padding: 1.1em;
+        font-size: 1.1em;
+    }
+
+    .patient-table {
+        font-size: 1em; /* Fuente intermedia */
+        min-width: auto; /* Permite que la tabla se ajuste más libremente */
+    }
+
+    .patient-table thead th,
+    .patient-table tbody td {
+        padding: 1.2em; /* Padding intermedio */
+    }
+
+    .action-button {
+        padding: 0.9em 1.4em;
+        font-size: 1.1em;
+        margin-right: 0.8em;
+        margin-bottom: 0; /* Elimina el margen inferior si ya no se apilan */
+    }
+}
+
+/* Escritorios grandes (más de 1024px) */
+@media (min-width: 1025px) {
+    .main-content {
+        padding: 4em; /* Restauramos el padding original */
+        margin-left: 25%; /* Margen para el sidebar expandido */
+    }
+
+    /* Esto se mantiene para cuando el sidebar se oculte/colapse */
+    .main-content.sidebar-hidden {
+        margin-left: 0 !important;
+    }
+
+    .main-content.sidebar-collapsed {
+        margin-left: 80px;
+    }
+
+    .history-header h1 {
+        font-size: 2.8em; /* Tamaño de título original */
+        margin-bottom: 3em;
+    }
+
+    .search-bar {
+        margin-bottom: 2.5em;
+        width: 60%; /* Vuelve a un ancho más controlado */
+        max-width: 600px; /* Ancho máximo original */
+    }
+
+    .search-bar input[type="text"] {
+        padding: 1.2em;
+        font-size: 1.3em;
+    }
+
+    .patient-table {
+        font-size: 1.3em; /* Fuente original */
+    }
+
+    .patient-table thead th,
+    .patient-table tbody td {
+        padding: 1.5em;
+    }
+
+    .action-button {
+        padding: 1em 1.5em;
+        font-size: 1.2em;
+        margin-right: 0.8em;
+    }
+}

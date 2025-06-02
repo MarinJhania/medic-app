@@ -1,0 +1,249 @@
+/* Base Styles (Mobile First: for small screens) */
+
+.modify-appointments-container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically on mobile */
+    min-height: 100vh;
+    background-color: #f4f6f8;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 1.5em; /* Reduced padding for mobile */
+    margin-left: 0; /* No margin on mobile, sidebar is likely hidden */
+    width: 100%; /* Occupy full width on mobile */
+    box-sizing: border-box; /* Include padding in width calculation */
+}
+
+/* Classes to adjust main-content margin based on sidebar state (controlled by Angular) */
+.main-content.sidebar-hidden {
+    margin-left: 0 !important; /* Ensure no margin when sidebar is fully hidden */
+}
+
+.main-content.sidebar-collapsed {
+    margin-left: 80px; /* Margin for collapsed sidebar (icons only) */
+}
+
+h2 {
+    color: #333;
+    margin-bottom: 1em; /* Reduced margin for mobile */
+    font-size: 1.5em; /* Smaller font size for mobile */
+    text-align: center; /* Center align title on mobile */
+}
+
+.nueva-cita-button {
+    background-color: #2196f3; /* Blue */
+    color: white;
+    border: none;
+    padding: 0.7em 1.2em; /* Reduced padding for mobile */
+    border-radius: 0.4em; /* Slightly smaller border-radius */
+    cursor: pointer;
+    font-size: 0.9em; /* Smaller font size for mobile */
+    margin-bottom: 1.5em; /* Reduced margin for mobile */
+    width: 100%; /* Full width button on mobile */
+    box-sizing: border-box; /* Include padding in width */
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.nueva-cita-button:hover {
+    background-color: #1976d2;
+}
+
+.table-container {
+    overflow-x: auto; /* Enable horizontal scroll for table on small screens */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    background-color: white; /* Move background to container to match original table style */
+    border-radius: 0.5em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); /* Add shadow to container */
+    border: 1px solid #ddd; /* Add border to container */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    /* Remove border and border-radius from table itself, now on .table-container */
+    min-width: 700px; /* Minimum width for the table to prevent squishing */
+    font-size: 0.9em; /* Smaller font size for table on mobile */
+}
+
+thead th {
+    background-color: #f9f9f9;
+    color: #555;
+    padding: 0.8em; /* Reduced padding for table headers */
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+    white-space: nowrap; /* Prevent text wrapping in table headers */
+}
+
+tbody td {
+    padding: 0.8em; /* Reduced padding for table cells */
+    border-bottom: 1px solid #eee;
+    white-space: nowrap; /* Prevent text wrapping in table cells (adjust as needed) */
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.action-buttons-group {
+    display: flex; /* Use flexbox to keep buttons in a row if space allows */
+    flex-wrap: wrap; /* Allow buttons to wrap to next line if not enough space */
+    gap: 0.5em; /* Space between buttons */
+    justify-content: center; /* Center buttons when wrapped or few */
+}
+
+.editar-button,
+.eliminar-button {
+    flex-shrink: 0; /* Prevent buttons from shrinking too much */
+    background: none;
+    padding: 0.5em 0.8em; /* Reduced padding for buttons */
+    border-radius: 0.3em;
+    cursor: pointer;
+    font-size: 0.85em; /* Smaller font size for buttons */
+    transition: background-color 0.3s ease;
+    white-space: nowrap; /* Prevent text from wrapping */
+    margin: 0; /* Reset margin as gap handles spacing */
+}
+
+.editar-button {
+    border: 1px solid #4caf50; /* Green */
+    color: #4caf50;
+}
+
+.editar-button:hover {
+    background-color: #e8f5e9;
+}
+
+.eliminar-button {
+    border: 1px solid #f44336; /* Red */
+    color: #f44336;
+}
+
+.eliminar-button:hover {
+    background-color: #ffebee;
+}
+
+
+/* --- Media Queries for Tablets and Desktops --- */
+
+/* Tablets and small desktops (768px to 1024px) */
+@media (min-width: 768px) {
+    .main-content {
+        padding: 2.5em; /* Intermediate padding */
+        margin-left: 250px; /* Default margin for expanded sidebar */
+    }
+
+    /* Adjust main-content margin based on sidebar state (Angular-controlled) */
+    .main-content.sidebar-hidden {
+        margin-left: 0 !important;
+    }
+
+    .main-content.sidebar-collapsed {
+        margin-left: 80px;
+    }
+
+    h2 {
+        margin-bottom: 1.2em;
+        font-size: 1.8em;
+        text-align: left; /* Align title to left */
+    }
+
+    .nueva-cita-button {
+        padding: 0.8em 1.5em;
+        font-size: 1em;
+        width: auto; /* Button takes natural width */
+        text-align: center;
+        margin-bottom: 1.8em;
+    }
+
+    .table-container {
+        padding: 0; /* Padding is now handled by table cells */
+        border: none; /* Remove border from container, let table handle it */
+        box-shadow: none; /* Remove shadow from container */
+    }
+
+    table {
+        min-width: auto; /* Allow table to adjust naturally */
+        font-size: 1em;
+        border: 1px solid #ddd; /* Restore border to table */
+        border-radius: 0.5em; /* Restore border-radius to table */
+        overflow: hidden; /* For border-radius on table */
+    }
+
+    thead th {
+        padding: 1em;
+    }
+
+    tbody td {
+        padding: 1em;
+    }
+
+    .action-buttons-group {
+        justify-content: flex-start; /* Align buttons to start in a row */
+        gap: 0.5em;
+    }
+
+    .editar-button,
+    .eliminar-button {
+        padding: 0.5em 1em;
+        font-size: 0.9em;
+    }
+}
+
+/* Large Desktops (more than 1024px) */
+@media (min-width: 1025px) {
+    .main-content {
+        padding: 3em; /* Restore original padding */
+        margin-left: 20%; /* Restore original margin for expanded sidebar */
+    }
+
+    /* Keep sidebar state adjustments */
+    .main-content.sidebar-hidden {
+        margin-left: 0 !important;
+    }
+
+    .main-content.sidebar-collapsed {
+        margin-left: 80px;
+    }
+
+    h2 {
+        margin-bottom: 1.5em;
+        font-size: 2em; /* Adjusted to 2em for consistency, was 2.8em in original */
+    }
+
+    .nueva-cita-button {
+        padding: 0.8em 1.5em;
+        font-size: 1em;
+        margin-bottom: 2em;
+    }
+
+    table {
+        font-size: 1em; /* Restore original table font size */
+    }
+
+    thead th {
+        padding: 1em;
+    }
+
+    tbody td {
+        padding: 1em;
+    }
+
+    .action-buttons-group {
+        gap: 0.5em; /* Default gap */
+    }
+
+    .editar-button,
+    .eliminar-button {
+        padding: 0.5em 1em;
+        font-size: 1em; /* Restore original button font size */
+        margin-right: 0.5em; /* Restore original right margin for spacing */
+    }
+
+    .eliminar-button {
+        margin-right: 0; /* No margin on the last button in the group */
+    }
+}

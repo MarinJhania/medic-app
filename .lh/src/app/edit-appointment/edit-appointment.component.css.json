@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/edit-appointment/edit-appointment.component.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1747561529094,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1747561529094,
+            "name": "Commit-0",
+            "content": "/* edit-appointment.component.css */\r\n.edit-appointment-container {\r\n  display: flex;\r\n  min-height: 100vh;\r\n  background-color: #f4f6f8;\r\n}\r\n\r\n.main-content {\r\n  flex-grow: 1;\r\n  padding: 3em;\r\n  margin-left: 20%; /* Ensure space for the fixed sidebar */\r\n}\r\n\r\nh2 {\r\n  color: #333;\r\n  margin-bottom: 1.5em;\r\n}\r\n\r\n.form-group {\r\n  margin-bottom: 1.2em;\r\n}\r\n\r\n.form-group label {\r\n  display: block;\r\n  margin-bottom: 0.5em;\r\n  font-weight: bold;\r\n  color: #555;\r\n}\r\n\r\n.form-group input[type=\"text\"],\r\n.form-group input[type=\"date\"],\r\n.form-group input[type=\"time\"],\r\n.form-group textarea {\r\n  width: 100%;\r\n  padding: 0.8em;\r\n  border: 1px solid #ccc;\r\n  border-radius: 0.3em;\r\n  font-size: 1em;\r\n  box-sizing: border-box;\r\n}\r\n\r\n.form-group textarea {\r\n  min-height: 80px;\r\n}\r\n\r\n.form-actions {\r\n  margin-top: 2em;\r\n}\r\n\r\n.cancel-button,\r\n.save-button {\r\n  padding: 0.8em 1.5em;\r\n  border-radius: 0.3em;\r\n  cursor: pointer;\r\n  font-size: 1em;\r\n  transition: background-color 0.3s ease;\r\n}\r\n\r\n.cancel-button {\r\n  background-color: #f44336;\r\n  color: white;\r\n  border: none;\r\n  margin-right: 1em;\r\n}\r\n\r\n.cancel-button:hover {\r\n  background-color: #d32f2f;\r\n}\r\n\r\n.save-button {\r\n  background-color: #4caf50;\r\n  color: white;\r\n  border: none;\r\n}\r\n\r\n.save-button:hover {\r\n  background-color: #45a049;\r\n}"
+        }
+    ]
+}

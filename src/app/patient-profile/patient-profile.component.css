@@ -1,0 +1,173 @@
+/* patient-profile.component.css */
+
+/* Contenedor principal (igual que en otras vistas con sidebar fijo) */
+.dashboard-container {
+    display: flex;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+     /* >>>>>>>> Ajusta este margin-left para que coincida con el 'width' de tu sidebar <<<<<<<< */
+    margin-left: 400px; /* Ejemplo: si tu sidebar tiene 400px */
+    background-color: #f4f7f6;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal de la sección de perfil */
+.user-profile-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: #1e3a5f;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Estilos para el subtítulo de sección dentro del formulario (Contacto de emergencia) */
+.section-sub-title { /* Usamos un nombre diferente para no chocar con section-title principal */
+    font-size: 1.3rem;
+    color: #1e3a5f;
+    margin-top: 25px; /* Espacio arriba del título de sub-sección */
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #eee; /* Línea sutil bajo el título */
+}
+
+
+/* Estilo para cada fila del formulario (para disposición en columnas) */
+.form-row {
+    display: flex; /* Usa flexbox para poner los grupos en línea */
+    gap: 30px; /* Espacio entre columnas */
+    margin-bottom: 15px; /* Espacio entre filas */
+    flex-wrap: wrap; /* Permite que las columnas salten de línea en móvil */
+}
+
+.form-row .form-group {
+    flex: 1; /* Permite que cada grupo de formulario ocupe espacio equitativo */
+    min-width: 250px; /* Ancho mínimo antes de saltar de línea */
+    display: flex; /* Flexbox para alinear label e input */
+    flex-direction: column; /* Apila label e input */
+}
+
+.form-row.full-width .form-group {
+     flex: 1 1 100%; /* Fuerza a que el grupo ocupe el ancho completo de la fila */
+     min-width: auto; /* Elimina el min-width para que se ajuste al 100% */
+}
+
+
+.form-group label {
+    display: block; /* Asegura que la etiqueta esté en su propia "línea" en la columna flex */
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Estilo para el asterisco de campo requerido */
+.form-group .required {
+    color: #dc3545; /* Color rojo */
+    margin-left: 2px;
+}
+
+/* Estilo general para todos los inputs de texto, email, tel, date */
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group input[type="date"] {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%; /* Ocupa todo el ancho del contenedor flex-item */
+    box-sizing: border-box; /* Incluye padding y border en el ancho */
+}
+
+/* Estilo específico para el input de fecha con icono */
+.form-group .input-with-icon input[type="date"] {
+    padding: 10px 10px 10px 35px; /* Espacio a la izquierda para el icono */
+    /* Resto de estilos ya definidos */
+}
+
+.input-with-icon { /* Ajuste si usas input-with-icon en un form-group */
+     position: relative;
+     display: flex; /* Asegura que el input y el icono se alineen si están en la misma línea */
+     align-items: center;
+     width: 100%; /* Ocupa todo el ancho del form-group */
+}
+
+.input-with-icon .icon {
+    position: absolute;
+    left: 10px;
+    color: #555;
+    pointer-events: none;
+}
+
+
+/* Contenedor para los botones de acción */
+.form-actions {
+    text-align: right; /* Alinea los botones a la derecha */
+    margin-top: 30px;
+    padding-top: 20px; /* Espacio arriba del botón */
+    border-top: 1px solid #eee; /* Línea sutil arriba de los botones */
+}
+
+/* Estilos generales para los botones (pueden ser los mismos que en otras vistas) */
+.btn { /* Estilos generales de botón, ya definidos */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, opacity 0.3s;
+    margin-left: 10px;
+}
+
+.btn-primary { /* Estilo botón primario (Guardar) */
+    background-color: #1e3a5f;
+    color: #fff;
+}
+.btn-primary:hover { background-color: #142a47; }
+
+.btn-cancel { /* Estilo botón cancelar (si lo añades) */
+    background-color: #ccc;
+    color: #333;
+}
+.btn-cancel:hover { background-color: #bbb; }
+
+
+/* Media Query para responsividad */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding-top: 80px;
+  }
+
+  .form-row {
+      flex-direction: column; /* Apila las columnas en una sola columna en móvil */
+      gap: 15px; /* Reduce el espacio entre los grupos */
+  }
+
+  .form-row .form-group {
+      min-width: auto; /* Permite que el grupo ocupe el ancho disponible */
+      width: 100%; /* Asegura que ocupen el 100% */
+  }
+
+  .form-row.full-width .form-group {
+       flex: 1 1 100%; /* Sigue ocupando el 100% */
+       width: 100%;
+   }
+   .input-with-icon {
+        width: 100%; /* Asegura que el contenedor del input con icono ocupe el 100% */
+    }
+}

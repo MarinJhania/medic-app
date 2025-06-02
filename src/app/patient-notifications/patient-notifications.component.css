@@ -1,0 +1,203 @@
+/* patient-notifications.component.css */
+
+/* Contenedor principal (igual que en otras vistas con sidebar fijo) */
+.dashboard-container {
+    display: flex;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+     /* >>>>>>>> Ajusta este margin-left para que coincida con el 'width' de tu sidebar <<<<<<<< */
+    margin-left: 400px; /* Ejemplo: si tu sidebar tiene 400px */
+    background-color: #f4f7f6;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal de la sección de notificaciones */
+.notifications-section {
+    /* Si quieres un panel blanco como en la imagen: */
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: #1e3a5f;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Contenedor de la lista de notificaciones */
+.notifications-list-container {
+    margin-top: 15px;
+}
+
+/* Encabezado de la lista (ej: Mensajes y Actualizaciones) */
+.list-header {
+    display: flex;
+    justify-content: space-between; /* Espacia título y contador */
+    align-items: center;
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 15px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #eee;
+}
+
+.list-header .list-title {
+    font-weight: bold;
+}
+
+.list-header .unread-count {
+    font-size: 0.9rem;
+    color: #007bff; /* Color para destacar el contador */
+}
+
+
+/* Estilo para cada ítem de notificación individual */
+.notification-item {
+    display: flex; /* Alinea icono, contenido y estado */
+    align-items: flex-start; /* Alinea arriba */
+    padding: 15px;
+    border: 1px solid #eee;
+    border-left: 5px solid transparent; /* Barra lateral que cambia de color */
+    border-radius: 4px;
+    background-color: #fff;
+    margin-bottom: 10px; /* Espacio entre notificaciones */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    cursor: pointer; /* Indica que se puede hacer clic */
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.notification-item:hover {
+    background-color: #f9f9f9;
+    border-color: #ddd;
+}
+
+/* Estilo para notificaciones no leídas */
+.notification-item.unread {
+     border-left-color: #007bff; /* Barra lateral azul para no leídas */
+     background-color: #eef7ff; /* Fondo ligeramente azul para no leídas */
+}
+
+
+/* Estilo para el contenedor del icono */
+.notification-icon {
+    flex-shrink: 0; /* No permite que el icono se encoja */
+    width: 40px; /* Tamaño fijo del círculo del icono */
+    height: 40px;
+    border-radius: 50%; /* Forma circular */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px; /* Espacio entre icono y contenido */
+    font-size: 1.2rem;
+    color: #fff; /* Color del icono dentro del círculo */
+    /* Colores de fondo y borde se definen por tipo */
+    border: 1px solid transparent;
+}
+
+/* Colores de fondo y borde del icono según el tipo */
+.notification-icon.type-appointment { /* Cita Confirmada (ejemplo) */
+    background-color: #007bff; /* Azul */
+    border-color: #007bff;
+}
+
+.notification-icon.type-message { /* Mensaje del Doctor (ejemplo) */
+    background-color: #28a745; /* Verde */
+    border-color: #28a745;
+}
+
+.notification-icon.type-system { /* Actualización del Sistema (ejemplo) */
+    background-color: #ffc107; /* Amarillo/Naranja */
+    border-color: #ffc107;
+}
+
+
+/* Estilo para el contenido de la notificación (título, mensaje, fecha) */
+.notification-content {
+    flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
+}
+
+.notification-title {
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 3px;
+}
+
+.notification-item.unread .notification-title {
+    color: #1e3a5f; /* Un poco más oscuro si está sin leer */
+}
+
+
+.notification-message {
+    font-size: 0.95rem;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.notification-date {
+    font-size: 0.85rem;
+    color: #777;
+}
+
+
+/* Estilo para el contenedor del estado (checkmark) */
+.notification-status {
+    flex-shrink: 0; /* No permite que el estado se encoja */
+    margin-left: 10px; /* Espacio entre contenido y estado */
+}
+
+.read-checkmark {
+     color: #28a745; /* Color verde para el checkmark de leído */
+     font-size: 1.2rem;
+}
+
+
+/* Estilo para el mensaje de no notificaciones */
+.no-notifications {
+    text-align: center;
+    color: #555;
+    margin-top: 20px;
+    font-style: italic;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+}
+
+
+/* Media Query para responsividad */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding-top: 80px;
+  }
+
+  .notification-item {
+      flex-direction: column; /* Apila icono, contenido y estado */
+      align-items: center; /* Centra horizontalmente */
+      text-align: center; /* Centra el texto */
+  }
+
+  .notification-icon {
+      margin-right: 0; /* Elimina margen a la derecha */
+      margin-bottom: 10px; /* Espacio entre icono y contenido */
+  }
+
+  .notification-content {
+      margin-bottom: 10px; /* Espacio entre contenido y estado */
+  }
+
+  .notification-status {
+       margin-left: 0; /* Elimina margen a la izquierda */
+   }
+}

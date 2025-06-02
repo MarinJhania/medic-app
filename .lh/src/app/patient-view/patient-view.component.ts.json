@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/patient-view/patient-view.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1747627450317,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1747627450317,
+            "name": "Commit-0",
+            "content": "import { Component } from '@angular/core';\r\n// 1. Importa el componente del menú lateral\r\n// Asegúrate de que la ruta ('../patient-sidebar-menu/patient-sidebar-menu.component')\r\n// sea correcta según dónde se encuentre tu componente del menú.\r\nimport { PatientSidebarMenuComponent } from '../patient-sidebar-menu/patient-sidebar-menu.component';\r\n\r\n@Component({\r\n  selector: 'app-patient-view',\r\n  // Si estás usando 'imports' a nivel del @Component, es probable que\r\n  // este componente deba ser 'standalone: true'\r\n  standalone: true, // <-- Añade o asegúrate de que 'standalone: true' esté aquí\r\n  imports: [\r\n    // 2. Añade el componente del menú lateral al array 'imports'\r\n    PatientSidebarMenuComponent\r\n    // Si necesitas usar otros módulos o componentes (como CommonModule para ngIf/ngFor,\r\n    // o ReactiveFormsModule), también deberían ir aquí si este componente es standalone.\r\n  ],\r\n  templateUrl: './patient-view.component.html',\r\n  styleUrl: './patient-view.component.css'\r\n})\r\nexport class PatientViewComponent {\r\n  // Aquí va la lógica de tu componente\r\n}"
+        }
+    ]
+}

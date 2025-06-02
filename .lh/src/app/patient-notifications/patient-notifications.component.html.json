@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/patient-notifications/patient-notifications.component.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1747632468208,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1747632468208,
+            "name": "Commit-0",
+            "content": "<div class=\"dashboard-container\">\r\n  <app-patient-sidebar-menu></app-patient-sidebar-menu>\r\n\r\n  <div class=\"main-content\">\r\n    <section class=\"notifications-section\">\r\n      <h1 class=\"section-title\">Notificaciones</h1>\r\n      <p class=\"section-subtitle\">Mantente informado sobre tus citas y mensajes</p>\r\n\r\n      <div class=\"notifications-list-container\">\r\n        <div class=\"list-header\">\r\n            <span class=\"list-title\">Mensajes y Actualizaciones</span>\r\n            <span class=\"unread-count\">{{ unreadCount }} sin leer</span>\r\n        </div>\r\n\r\n        <div class=\"notification-item\"\r\n             *ngFor=\"let notification of notifications\"\r\n             [ngClass]=\"{'unread': !notification.isRead}\"\r\n             (click)=\"handleClickNotification(notification)\">\r\n            <div class=\"notification-icon\" [ngClass]=\"'type-' + notification.type\">\r\n                <i class=\"icon\" [ngClass]=\"getNotificationIcon(notification.type)\"></i>\r\n            </div>\r\n\r\n            <div class=\"notification-content\">\r\n                <div class=\"notification-title\">{{ notification.title }}</div>\r\n                <div class=\"notification-message\">{{ notification.message }}</div>\r\n                <div class=\"notification-date\">{{ notification.date }}</div>\r\n            </div>\r\n\r\n            <div class=\"notification-status\">\r\n                <i *ngIf=\"notification.isRead\" class=\"fas fa-check read-checkmark\"></i>\r\n            </div>\r\n        </div>\r\n\r\n        <div *ngIf=\"notifications?.length === 0\" class=\"no-notifications\">\r\n             No tienes notificaciones nuevas.\r\n        </div>\r\n\r\n      </div>\r\n    </section>\r\n  </div>\r\n</div>"
+        }
+    ]
+}

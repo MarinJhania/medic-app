@@ -1,0 +1,30 @@
+{
+    "sourceFile": "src/app/app.routes.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1747474892055,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1747475688065,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { Routes } from '@angular/router';\r\n-//import { HomeComponent } from './home.component'; // Asegúrate de la ruta correcta a tu HomeComponent\r\n-import { LoginComponent } from './login/login.component'; // Asegúrate de la ruta correcta a tu LoginComponent\r\n+import { HomeComponent } from './pages/home/home.component'; // Ajusta la ruta a HomeComponent\r\n+import { LoginComponent } from './login/login.component';   // Ajusta la ruta a LoginComponent\r\n \r\n export const routes: Routes = [\r\n- // { path: '', component: HomeComponent }, // Ruta por defecto (página principal)\r\n-  { path: 'login', component: LoginComponent }, // Ruta para tu componente de inicio de sesión\r\n-  // Puedes agregar más rutas aquí para otras páginas de tu aplicación\r\n+  { path: '', component: HomeComponent },\r\n+  { path: 'login', component: LoginComponent },\r\n+  // ... otras rutas\r\n ];\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1747527753540,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,11 @@\n import { Routes } from '@angular/router';\r\n import { HomeComponent } from './pages/home/home.component'; // Ajusta la ruta a HomeComponent\r\n import { LoginComponent } from './login/login.component';   // Ajusta la ruta a LoginComponent\r\n+import { RegisterComponent } from './register/register.component'; // <--- Importa RegisterComponent\r\n \r\n export const routes: Routes = [\r\n   { path: '', component: HomeComponent },\r\n   { path: 'login', component: LoginComponent },\r\n+  { path: 'register', component: RegisterComponent }, // <--- Agrega esta ruta\r\n   // ... otras rutas\r\n ];\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1747535491758,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,13 @@\n import { Routes } from '@angular/router';\r\n-import { HomeComponent } from './pages/home/home.component'; // Ajusta la ruta a HomeComponent\r\n-import { LoginComponent } from './login/login.component';   // Ajusta la ruta a LoginComponent\r\n-import { RegisterComponent } from './register/register.component'; // <--- Importa RegisterComponent\r\n+import { HomeComponent } from './pages/home/home.component';\r\n+import { LoginComponent } from './login/login.component';\r\n+import { RegisterComponent } from './register/register.component';\r\n+import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.component'; // <--- Importa DoctorDashboardComponent\r\n \r\n export const routes: Routes = [\r\n   { path: '', component: HomeComponent },\r\n   { path: 'login', component: LoginComponent },\r\n-  { path: 'register', component: RegisterComponent }, // <--- Agrega esta ruta\r\n+  { path: 'register', component: RegisterComponent },\r\n+  { path: 'doctor/dashboard', component: DoctorDashboardComponent }, // <--- Agrega esta ruta\r\n   // ... otras rutas\r\n ];\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1747474892055,
+            "name": "Commit-0",
+            "content": "import { Routes } from '@angular/router';\r\n//import { HomeComponent } from './home.component'; // Asegúrate de la ruta correcta a tu HomeComponent\r\nimport { LoginComponent } from './login/login.component'; // Asegúrate de la ruta correcta a tu LoginComponent\r\n\r\nexport const routes: Routes = [\r\n // { path: '', component: HomeComponent }, // Ruta por defecto (página principal)\r\n  { path: 'login', component: LoginComponent }, // Ruta para tu componente de inicio de sesión\r\n  // Puedes agregar más rutas aquí para otras páginas de tu aplicación\r\n];"
+        }
+    ]
+}

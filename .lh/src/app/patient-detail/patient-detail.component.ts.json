@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/patient-detail/patient-detail.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1747559052077,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1747559052076,
+            "name": "Commit-0",
+            "content": "import { Component, OnInit } from '@angular/core';\r\nimport { ActivatedRoute } from '@angular/router';\r\nimport { CommonModule } from '@angular/common';\r\nimport { SidebarMenuComponent } from '../sidebar-menu/sidebar-menu.component';\r\nimport { RouterLink } from '@angular/router';\r\n\r\ninterface Consulta {\r\n  fecha: string;\r\n  tipo: string;\r\n  notas: string;\r\n  prescripcion: string;\r\n}\r\n\r\ninterface PacienteDetalle {\r\n  nombre: string;\r\n  edad: number;\r\n  historialConsultas: Consulta[];\r\n}\r\n\r\n@Component({\r\n  selector: 'app-patient-detail',\r\n  standalone: true,\r\n  imports: [CommonModule, SidebarMenuComponent, RouterLink],\r\n  templateUrl: './patient-detail.component.html',\r\n  styleUrls: ['./patient-detail.component.css']\r\n})\r\nexport class PatientDetailComponent implements OnInit {\r\n  patientId: string | null = null;\r\n  patient: PacienteDetalle | null = null; // <--- ¡Declara la propiedad 'patient' aquí!\r\n\r\n  constructor(private route: ActivatedRoute) { }\r\n\r\n  ngOnInit(): void {\r\n    this.route.params.subscribe(params => {\r\n      this.patientId = params['id'];\r\n      // En una aplicación real, aquí harías una llamada a un servicio\r\n      // para obtener los detalles del paciente usando this.patientId\r\n      console.log('ID del paciente:', this.patientId);\r\n      this.loadPatientDetails(this.patientId);\r\n    });\r\n  }\r\n\r\n  loadPatientDetails(id: string | null): void {\r\n    // Simulación de datos del paciente (reemplazar con llamada a servicio)\r\n    this.patient = {\r\n      nombre: 'María López',\r\n      edad: 35,\r\n      historialConsultas: [\r\n        { fecha: '15/05/2023', tipo: 'Consulta', notas: 'Control mensual rutinario', prescripcion: 'Paracetamol 500mg' },\r\n        { fecha: '15/04/2023', tipo: 'Consulta', notas: 'Dolor de cabeza frecuente', prescripcion: 'Ibuprofeno 400mg' }\r\n      ]\r\n    };\r\n  }\r\n\r\n  agendarNuevaCita(): void {\r\n    console.log('Agendar nueva cita para:', this.patient?.nombre);\r\n    // Lógica para agendar cita\r\n  }\r\n\r\n  enviarRecordatorio(): void {\r\n    console.log('Enviar recordatorio a:', this.patient?.nombre);\r\n    // Lógica para enviar recordatorio\r\n  }\r\n}"
+        }
+    ]
+}

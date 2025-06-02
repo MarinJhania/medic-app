@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/modify-appointments/modify-appointments.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1747560125216,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1747560125216,
+            "name": "Commit-0",
+            "content": "import { Component, OnInit } from '@angular/core';\r\nimport { SidebarMenuComponent } from '../sidebar-menu/sidebar-menu.component';\r\nimport { CommonModule } from '@angular/common';\r\n\r\n@Component({\r\n  selector: 'app-modify-appointments',\r\n  standalone: true,\r\n  imports: [CommonModule, SidebarMenuComponent], // Elimina RouterLink de los imports\r\n  templateUrl: './modify-appointments.component.html',\r\n  styleUrls: ['./modify-appointments.component.css']\r\n})\r\nexport class ModifyAppointmentsComponent implements OnInit {\r\n  appointments: any[] = [\r\n    { fecha: '2023-08-20', hora: '09:00', paciente: 'María López', motivo: 'Control mensual' },\r\n    { fecha: '2023-08-21', hora: '10:30', paciente: 'Carlos Rodríguez', motivo: 'Primera consulta' }\r\n  ];\r\n\r\n  constructor() { }\r\n\r\n  ngOnInit(): void {\r\n  }\r\n\r\n  nuevaCita(): void {\r\n    console.log('Implementar lógica para crear una nueva cita');\r\n  }\r\n\r\n  editarCita(cita: any): void {\r\n    console.log('Implementar lógica para editar la cita:', cita);\r\n  }\r\n\r\n  eliminarCita(cita: any): void {\r\n    console.log('Implementar lógica para eliminar la cita:', cita);\r\n  }\r\n}"
+        }
+    ]
+}

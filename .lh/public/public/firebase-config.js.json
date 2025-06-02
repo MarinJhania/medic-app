@@ -1,0 +1,18 @@
+{
+    "sourceFile": "public/public/firebase-config.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1748826875711,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1748826875711,
+            "name": "Commit-0",
+            "content": "// Importa las funciones que necesitas del SDKs que necesitas\r\nimport { initializeApp } from \"firebase/app\";\r\nimport { getAnalytics } from \"firebase/analytics\"; // Ya lo tienes, para Analytics\r\nimport { getFirestore } from \"firebase/firestore\"; // <-- ¡IMPORTANTE: Añade esta línea!\r\nimport { getAuth } from \"firebase/auth\";       // <-- ¡IMPORTANTE: Añade esta línea!\r\n\r\n// TODO: Add SDKs for Firebase products that you want to use\r\n// https://firebase.google.com/docs/web/setup#available-libraries\r\n\r\n// La configuración de tu aplicación web de Firebase\r\n// Para Firebase JS SDK v7.20.0 y posterior, measurementId es opcional\r\nconst firebaseConfig = {\r\n  apiKey: \"AIzaSyBQLiXJQhwATXVsG2oBkqSTWuyJSYcGE2U\",\r\n  authDomain: \"mi-clinica-app-12345.firebaseapp.com\",\r\n  projectId: \"mi-clinica-app-12345\",\r\n  storageBucket: \"mi-clinica-app-12345.firebasestorage.app\",\r\n  messagingSenderId: \"303697127784\",\r\n  appId: \"1:303697127784:web:1cd0574fe4a816acc74edd\",\r\n  measurementId: \"G-TJZN4EDD0Y\"\r\n};\r\n\r\n// Inicializa Firebase\r\nconst app = initializeApp(firebaseConfig);\r\nconst analytics = getAnalytics(app);\r\n\r\n// <-- ¡IMPORTANTE: Añade estas líneas para Firestore y Auth!\r\nconst db = getFirestore(app); // Obtiene la instancia de Firestore\r\nconst auth = getAuth(app);   // Obtiene la instancia de Authentication\r\n\r\n// <-- ¡IMPORTANTE: Añade esta exportación para usarlos en otros archivos!\r\nexport { app, analytics, db, auth };// Exporta la instancia de la app también si la necesitas"
+        }
+    ]
+}

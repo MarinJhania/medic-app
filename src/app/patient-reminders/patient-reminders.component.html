@@ -1,0 +1,42 @@
+<div class="dashboard-container">
+  <app-patient-sidebar-menu></app-patient-sidebar-menu>
+
+  <div class="main-content">
+    <section class="reminders-section">
+      <h1 class="section-title">Recordatorios</h1>
+      <p class="section-subtitle">Gestiona los recordatorios de tus próximas citas</p>
+
+      <div class="upcoming-reminders-container">
+        <div class="list-header">
+            <i class="fas fa-bell header-icon"></i> <span class="list-title">Próximos Recordatorios</span>
+            </div>
+
+        <div class="reminder-item" *ngFor="let reminder of upcomingReminders">
+
+            <div class="reminder-icon-container">
+                 <i class="fas fa-bell item-icon"></i> </div>
+
+            <div class="reminder-content">
+                 <div class="appointment-info">
+                    <span class="doctor-name">Cita con {{ reminder.doctor }}</span>
+                 </div>
+                 <div class="appointment-details">
+                     <span class="date-time">{{ reminder.date }} - {{ reminder.time }}</span>
+                 </div>
+                 <div class="reminder-method">
+                     <i class="method-icon" [ngClass]="getReminderMethodIcon(reminder.method)"></i>
+                     <span>Recordatorio por {{ reminder.method }}</span>
+                 </div>
+            </div>
+
+            <span class="status-tag" [ngClass]="{'sent': reminder.status === 'Enviado', 'pending': reminder.status === 'Pendiente'}">{{ reminder.status }}</span>
+        </div>
+
+        <div *ngIf="upcomingReminders.length === 0" class="no-reminders">
+             No tienes recordatorios próximos.
+        </div>
+
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/patient-reminders/patient-reminders.component.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1747632810831,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1747632810831,
+            "name": "Commit-0",
+            "content": "<div class=\"dashboard-container\">\r\n  <app-patient-sidebar-menu></app-patient-sidebar-menu>\r\n\r\n  <div class=\"main-content\">\r\n    <section class=\"reminders-section\">\r\n      <h1 class=\"section-title\">Recordatorios</h1>\r\n      <p class=\"section-subtitle\">Gestiona los recordatorios de tus próximas citas</p>\r\n\r\n      <div class=\"upcoming-reminders-container\">\r\n        <div class=\"list-header\">\r\n            <i class=\"fas fa-bell header-icon\"></i> <span class=\"list-title\">Próximos Recordatorios</span>\r\n            </div>\r\n\r\n        <div class=\"reminder-item\" *ngFor=\"let reminder of upcomingReminders\">\r\n\r\n            <div class=\"reminder-icon-container\">\r\n                 <i class=\"fas fa-bell item-icon\"></i> </div>\r\n\r\n            <div class=\"reminder-content\">\r\n                 <div class=\"appointment-info\">\r\n                    <span class=\"doctor-name\">Cita con {{ reminder.doctor }}</span>\r\n                 </div>\r\n                 <div class=\"appointment-details\">\r\n                     <span class=\"date-time\">{{ reminder.date }} - {{ reminder.time }}</span>\r\n                 </div>\r\n                 <div class=\"reminder-method\">\r\n                     <i class=\"method-icon\" [ngClass]=\"getReminderMethodIcon(reminder.method)\"></i>\r\n                     <span>Recordatorio por {{ reminder.method }}</span>\r\n                 </div>\r\n            </div>\r\n\r\n            <span class=\"status-tag\" [ngClass]=\"{'sent': reminder.status === 'Enviado', 'pending': reminder.status === 'Pendiente'}\">{{ reminder.status }}</span>\r\n        </div>\r\n\r\n        <div *ngIf=\"upcomingReminders.length === 0\" class=\"no-reminders\">\r\n             No tienes recordatorios próximos.\r\n        </div>\r\n\r\n      </div>\r\n    </section>\r\n  </div>\r\n</div>"
+        }
+    ]
+}

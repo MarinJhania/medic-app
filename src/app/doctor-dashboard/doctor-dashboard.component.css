@@ -1,0 +1,302 @@
+/* Estilos base (Mobile First: para pantallas pequeñas) */
+
+.dashboard-container {
+    display: flex; /* Mantenemos flex para la estructura general */
+    flex-direction: column; /* Por defecto, los elementos se apilan en móviles */
+    min-height: 100vh;
+    background-color: #f4f6f8;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 1.5em; /* Reducimos el padding para móviles */
+    margin-left: 0; /* En móviles, el contenido principal ocupa todo el ancho */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    box-sizing: border-box; /* Incluye padding en el ancho total */
+}
+
+/* Cuando el sidebar está oculto, el main-content no tiene margen */
+/* Esta clase se controlará en el componente Angular */
+.main-content.sidebar-hidden {
+    margin-left: 0 !important; /* Usamos !important para asegurar que sobreescriba otras reglas */
+}
+
+/* Para cuando el sidebar está colapsado en pantallas más grandes */
+.main-content.sidebar-collapsed {
+    margin-left: 80px; /* Margen igual al ancho del sidebar colapsado */
+}
+
+
+.dashboard-header h1 {
+    color: #333;
+    margin-bottom: 1.5em; /* Margen más pequeño para móviles */
+    font-size: 1.8em; /* Tamaño de título más pequeño para móviles */
+    font-weight: 500;
+    text-align: center; /* Centramos el título en móviles */
+}
+
+.kpi-section {
+    display: flex;
+    flex-direction: column; /* Apila las tarjetas KPI en móviles */
+    gap: 1.5em; /* Espacio entre KPIs reducido para móviles */
+    margin-bottom: 2.5em; /* Margen inferior reducido */
+}
+
+.kpi-card {
+    background-color: white;
+    border-radius: 0.5em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    padding: 1.5em; /* Padding reducido */
+    text-align: center;
+    flex: 1 1 auto; /* Permite que las tarjetas crezcan/encojan en fila, pero se apilan bien en columna */
+    width: 100%; /* Ocupa todo el ancho cuando está apilado */
+    box-sizing: border-box;
+}
+
+.kpi-icon {
+    font-size: 2.5em; /* Tamaño de icono más pequeño */
+    color: #3f51b5;
+    margin-bottom: 0.8em;
+}
+
+.kpi-value {
+    font-size: 2em; /* Tamaño de valor más pequeño */
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 0.3em;
+}
+
+.kpi-label {
+    color: #777;
+    font-size: 1em; /* Tamaño de etiqueta más pequeño */
+}
+
+.agenda-section h2 {
+    color: #333;
+    margin-bottom: 1.5em; /* Margen más pequeño */
+    font-size: 1.6em; /* Título de agenda más pequeño */
+    text-align: center; /* Centramos en móviles */
+}
+
+.agenda-table-container {
+    overflow-x: auto; /* Permite desplazamiento horizontal en tablas grandes para móviles */
+    -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
+    margin-bottom: 2em; /* Margen inferior */
+}
+
+.agenda-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 1px solid #ddd;
+    border-radius: 0.5em;
+    overflow: hidden; /* Asegura que el border-radius funcione */
+    font-size: 0.9em; /* Fuente más pequeña para móviles */
+    min-width: 600px; /* Asegura que la tabla no se encoja demasiado en móviles */
+}
+
+.agenda-table thead th {
+    background-color: #f9f9f9;
+    color: #555;
+    padding: 1em; /* Padding más pequeño */
+    text-align: left;
+    font-weight: bold;
+    border-bottom: 1px solid #ddd;
+}
+
+.agenda-table tbody td {
+    padding: 1em; /* Padding más pequeño */
+    border-bottom: 1px solid #eee;
+}
+
+.agenda-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.status {
+    padding: 0.6em 1em; /* Padding ajustado */
+    border-radius: 0.4em;
+    font-size: 0.9em; /* Fuente ajustada */
+    font-weight: bold;
+    white-space: nowrap; /* Evita que el texto de estado se rompa */
+}
+
+/* Colores de estado (ejemplos) */
+.status.pendiente { background-color: #ffeb3b; color: #fbc02d; } /* Amarillo */
+.status.confirmado { background-color: #c8e6c9; color: #43a047; } /* Verde */
+.status.cancelado { background-color: #ffcdd2; color: #e53935; } /* Rojo */
+
+.action-button {
+    background: none;
+    border: none;
+    color: #3f51b5;
+    cursor: pointer;
+    padding: 0.6em 0.8em; /* Padding ajustado */
+    border-radius: 0.4em;
+    transition: background-color 0.3s ease;
+    font-size: 0.9em; /* Fuente ajustada */
+    white-space: nowrap; /* Evita que el texto del botón se rompa */
+}
+
+.action-button:hover {
+    background-color: #e0f2f7;
+}
+
+.action-button.cancelar {
+    color: #d32f2f;
+}
+
+.action-button.cancelar:hover {
+    background-color: #ffebee;
+}
+
+/* --- Media Queries para tabletas y escritorios --- */
+
+/* Tabletas y escritorios pequeños (768px a 1024px) */
+@media (min-width: 768px) {
+    .main-content {
+        padding: 3em; /* Padding intermedio */
+        margin-left: 250px; /* Deja espacio para el sidebar expandido por defecto en desktop */
+    }
+
+    /* Ajuste para el sidebar colapsado, que se controlará en Angular */
+    .main-content.sidebar-collapsed {
+        margin-left: 80px; /* Margen para el sidebar colapsado */
+    }
+
+    .dashboard-header h1 {
+        font-size: 2.2em;
+        margin-bottom: 2.5em;
+        text-align: left; /* Alineado a la izquierda */
+    }
+
+    .kpi-section {
+        flex-direction: row; /* Vuelve a poner las tarjetas KPI en fila */
+        flex-wrap: wrap; /* Permite que las tarjetas se envuelvan */
+        gap: 2em; /* Espacio intermedio */
+        margin-bottom: 3.5em;
+        justify-content: center; /* Centra las tarjetas si no llenan toda la fila */
+    }
+
+    .kpi-card {
+        flex: 1 1 calc(33.333% - 2em); /* Tres tarjetas por fila (100%/3 - gap) */
+        max-width: calc(33.333% - 2em); /* Máximo para evitar que se estiren demasiado */
+        padding: 2em; /* Padding restaurado */
+    }
+
+    /* Si solo hay 2 KPIs y no 3 o 4, podrías ajustarlos así: */
+    /* .kpi-card:nth-child(n+3) { flex: 1 1 calc(50% - 2em); max-width: calc(50% - 2em); } */
+
+
+    .kpi-icon {
+        font-size: 2.8em;
+        margin-bottom: 1em;
+    }
+
+    .kpi-value {
+        font-size: 2.3em;
+    }
+
+    .kpi-label {
+        font-size: 1.1em;
+    }
+
+    .agenda-section h2 {
+        font-size: 2em;
+        margin-bottom: 1.8em;
+        text-align: left; /* Alineado a la izquierda */
+    }
+
+    .agenda-table {
+        font-size: 1.1em;
+        min-width: auto; /* Permite que la tabla se ajuste normalmente */
+    }
+
+    .agenda-table thead th,
+    .agenda-table tbody td {
+        padding: 1.2em; /* Padding restaurado */
+    }
+
+    .status {
+        padding: 0.7em 1.1em;
+        font-size: 0.95em;
+    }
+
+    .action-button {
+        padding: 0.7em 1em;
+        font-size: 1em;
+    }
+}
+
+/* Escritorios grandes (más de 1024px) */
+@media (min-width: 1025px) {
+    .main-content {
+        padding: 4em; /* Restauramos el padding original */
+        margin-left: 25%; /* Margen para el sidebar expandido */
+    }
+
+    /* Esto se mantiene para cuando el sidebar se oculte */
+    .main-content.sidebar-hidden {
+        margin-left: 0 !important;
+    }
+
+    /* Esto se mantiene para cuando el sidebar se colapse */
+    .main-content.sidebar-collapsed {
+        margin-left: 80px;
+    }
+
+    .dashboard-header h1 {
+        font-size: 2.8em; /* Tamaño de título original */
+        margin-bottom: 3em;
+    }
+
+    .kpi-section {
+        gap: 3em; /* Espacio original */
+        margin-bottom: 4em;
+    }
+
+    .kpi-card {
+        flex: 1; /* Vuelve a tomar flex:1 para distribución equitativa de los que quepan */
+        max-width: none; /* Elimina la restricción de max-width si se ajusta bien */
+    }
+
+    /* Si tienes un número fijo de KPIs (ej. 3 o 4), puedes hacerlos más precisos: */
+    /* .kpi-card { flex: 1 1 200px; }  o flex: 1 1 calc(25% - 2em); para 4 en fila */
+
+
+    .kpi-icon {
+        font-size: 3em;
+    }
+
+    .kpi-value {
+        font-size: 2.5em;
+    }
+
+    .kpi-label {
+        font-size: 1.2em;
+    }
+
+    .agenda-section h2 {
+        font-size: 2.2em;
+        margin-bottom: 2em;
+    }
+
+    .agenda-table {
+        font-size: 1.3em;
+    }
+
+    .agenda-table thead th,
+    .agenda-table tbody td {
+        padding: 1.5em;
+    }
+
+    .status {
+        padding: 0.8em 1.2em;
+        font-size: 1em;
+    }
+
+    .action-button {
+        padding: 0.8em 1.2em;
+        font-size: 1.2em;
+    }
+}

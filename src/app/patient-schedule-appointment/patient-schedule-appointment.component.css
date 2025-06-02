@@ -1,0 +1,232 @@
+/* patient-schedule-appointment.component.css */
+
+/* Contenedor principal (igual que en otras vistas con sidebar fijo) */
+.dashboard-container {
+    display: flex;
+}
+
+.main-content {
+    flex-grow: 1;
+    padding: 20px;
+    /* >>>>>>>> Ajusta este margin-left para que coincida con el 'width' de tu sidebar <<<<<<<< */
+    margin-left: 400px; /* Ejemplo: si tu sidebar tiene 400px */
+    background-color: #f4f7f6;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Contenedor principal de la sección de agendar cita */
+.schedule-appointment-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.section-title {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+    color: #1e3a5f;
+}
+
+.section-subtitle {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* Contenedor general de los pasos de agendamiento */
+.scheduling-steps-container {
+    margin-top: 20px;
+}
+
+.scheduling-step h3 {
+    font-size: 1.4rem;
+    color: #1e3a5f;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #eee; /* Línea bajo el título del paso */
+    padding-bottom: 10px;
+}
+
+.step-divider {
+    border: none;
+    height: 1px;
+    background-color: #ddd;
+    margin: 30px 0; /* Espacio entre pasos */
+}
+
+/* Estilos para la lista de especialidades (botones/tarjetas) */
+.specialty-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Espacio entre especialidades */
+}
+
+.specialty-item {
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s, border-color 0.2s, box-shadow 0.2s;
+}
+
+.specialty-item:hover {
+    background-color: #eee;
+    border-color: #bbb;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.specialty-item.selected { /* Clase para especialidad seleccionada */
+    background-color: #1e3a5f;
+    color: #fff;
+    border-color: #1e3a5f;
+}
+
+/* Estilos para la lista de doctores */
+.doctor-list {
+    display: grid; /* O flex-direction: column */
+    gap: 12px; /* Espacio entre ítems de doctor */
+}
+
+.doctor-item {
+    display: flex; /* Alinea nombre, especialidad y botón */
+    align-items: center; /* Centra verticalmente */
+    padding: 12px 15px;
+    border: 1px solid #eee;
+    border-radius: 6px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.doctor-item .doctor-name {
+    font-weight: bold;
+    color: #1e3a5f;
+    margin-right: 5px;
+}
+
+.doctor-item .doctor-specialty {
+     font-size: 0.9rem;
+     color: #555;
+     margin-right: auto; /* Empuja el botón a la derecha */
+}
+
+.doctor-item .btn-select-doctor {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    background-color: #007bff; /* Color azul */
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.doctor-item .btn-select-doctor:hover {
+    background-color: #0056b3;
+}
+
+/* Estilos para la selección de fecha y hora (similar a reagendar) */
+.date-time-selection {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.date-time-selection .form-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.input-with-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: auto;
+    max-width: 250px; /* O similar */
+}
+
+.input-with-icon input[type="date"] {
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    flex-grow: 1;
+    cursor: pointer;
+}
+
+.input-with-icon .icon {
+    position: absolute;
+    left: 10px;
+    color: #555;
+}
+
+.time-slots {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.time-slot {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #eee;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.time-slot:hover {
+    background-color: #ddd;
+    border-color: #bbb;
+}
+
+.time-slot.selected {
+    background-color: #1e3a5f;
+    color: #fff;
+    border-color: #1e3a5f;
+}
+
+
+/* Estilos para los botones de acción finales */
+.form-actions {
+    text-align: right;
+    margin-top: 30px;
+}
+
+.btn { /* Estilos generales de botón, ya definidos */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s, opacity 0.3s;
+    margin-left: 10px;
+}
+
+.btn-primary { /* Estilo botón primario */
+    background-color: #1e3a5f;
+    color: #fff;
+}
+.btn-primary:hover { background-color: #142a47; }
+
+.btn-cancel { /* Estilo botón cancelar */
+    background-color: #ccc;
+    color: #333;
+}
+.btn-cancel:hover { background-color: #bbb; }
+
+
+/* Media Query para responsividad */
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 0;
+    padding-top: 80px;
+  }
+
+  .date-time-selection {
+      flex-direction: column;
+      gap: 15px;
+  }
+}

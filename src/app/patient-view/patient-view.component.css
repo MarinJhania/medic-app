@@ -1,0 +1,280 @@
+/* patient-view.component.css */
+
+/* Contenedor principal que organiza el sidebar y el contenido */
+.dashboard-container {
+  display: flex; /* Usa flexbox para alinear el sidebar y el contenido */
+  /* El sidebar es fijo, así que solo necesitamos el espacio para el contenido */
+}
+
+/* Contenido principal (el área a la derecha del sidebar) */
+.main-content {
+  flex-grow: 1; /* Permite que el contenido principal ocupe el espacio restante */
+  padding: 20px; /* Espaciado interno */
+  /* >>>>>>>> Ajusta este valor para que coincida exactamente con el 'width' de tu sidebar <<<<<<<< */
+  margin-left: 400px; /* <-- Asegura que el contenido principal empiece DESPUÉS del sidebar fijo */
+  background-color: #f4f7f6; /* Fondo ligeramente gris */
+  min-height: 100vh; /* Asegura que ocupe al menos la altura de la ventana */
+  box-sizing: border-box;
+}
+
+/* Estilos generales de sección */
+.section-title {
+  font-size: 1.8rem;
+  margin-bottom: 5px;
+  color: #1e3a5f;
+}
+
+.section-subtitle {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* Estilos para la sección de Reagendar Cita */
+.reschedule-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.reschedule-form {
+  margin-top: 15px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-group .bold {
+  font-weight: bold;
+  color: #1e3a5f; /* O un color que destaque más */
+}
+
+
+.input-with-icon {
+  position: relative;
+  display: inline-block; /* O flex para alinear mejor */
+  align-items: center;
+  width: auto; /* Ajustar al contenido si es necesario */
+}
+
+.input-with-icon input[type="date"] {
+  padding: 10px 10px 10px 35px; /* Ajustar padding para el icono */
+  border: 1px solid #ccc;
+  border-radius: 44px; /* Esto le da la forma redonda del ejemplo */
+  font-size: 1rem;
+  /* Eliminar icono nativo en algunos navegadores si es posible/deseado */
+  /* -webkit-appearance: none; */
+  /* appearance: none; */
+}
+
+.input-with-icon .icon {
+  position: absolute;
+  left: 10px; /* Posicionar icono a la izquierda */
+  top: 50%;
+  transform: translateY(-50%);
+  color: #555;
+  pointer-events: none; /* No bloquear clics en el input */
+}
+
+
+.form-row {
+    display: flex; /* Organiza elementos en fila */
+    gap: 20px; /* Espacio entre los elementos */
+    margin-bottom: 20px;
+    flex-wrap: wrap; /* Permite que los elementos salten de línea en pantallas pequeñas */
+}
+
+.form-row .form-group {
+    flex: 1; /* Permite que los grupos ocupen espacio */
+    min-width: 200px; /* Ancho mínimo antes de saltar de línea */
+}
+
+
+.time-slots {
+    display: flex;
+    flex-wrap: wrap; /* Permite que los botones salten de línea */
+    gap: 8px; /* Espacio entre los botones */
+}
+
+.time-slot {
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #eee;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s, border-color 0.2s;
+}
+
+.time-slot:hover {
+    background-color: #ddd;
+    border-color: #bbb;
+}
+
+/* Puedes añadir un estado activo para un time-slot seleccionado */
+.time-slot.selected {
+    background-color: #1e3a5f;
+    color: #fff;
+    border-color: #1e3a5f;
+}
+
+
+.form-actions {
+    text-align: right; /* Alinea los botones a la derecha */
+    margin-top: 20px;
+}
+
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s, opacity 0.3s;
+  margin-left: 10px; /* Espacio entre botones */
+}
+
+.btn-primary {
+  background-color: #1e3a5f; /* Color principal */
+  color: #fff;
+}
+
+.btn-primary:hover {
+  background-color: #142a47;
+}
+
+.btn-cancel {
+  background-color: #ccc; /* Color gris */
+  color: #333;
+}
+
+.btn-cancel:hover {
+  background-color: #bbb;
+}
+
+.divider {
+    border: none;
+    height: 1px;
+    background-color: #ccc;
+    margin: 30px 0; /* Espacio arriba y abajo del separador */
+}
+
+
+/* Estilos para la sección de Citas Activas */
+.active-appointments-section {
+    margin-top: 20px;
+}
+
+.appointment-list {
+    display: grid; /* O flexbox en columna */
+    gap: 15px; /* Espacio entre las tarjetas de citas */
+}
+
+.appointment-card {
+    background-color: #fff;
+    padding: 15px;
+    border-left: 5px solid #1e3a5f; /* Barra lateral azul */
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    display: flex; /* Flexbox para alinear contenido y detalles */
+    flex-direction: column; /* Apila contenido y detalles */
+}
+
+.appointment-card .card-content {
+    display: flex; /* Alinea info doctor y tag status */
+    justify-content: space-between; /* Espacia info doctor y tag */
+    align-items: flex-start; /* Alinea arriba */
+    margin-bottom: 10px; /* Espacio antes de los detalles */
+}
+
+.appointment-card .doctor-info {
+    flex-grow: 1; /* Permite que la info ocupe espacio */
+}
+
+.appointment-card .doctor-name {
+    font-weight: bold;
+    color: #1e3a5f;
+    margin-bottom: 3px;
+}
+
+.appointment-card .doctor-specialty,
+.appointment-card .appointment-type {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 3px;
+}
+
+.status-tag {
+    padding: 4px 8px;
+    border-radius: 12px; /* Forma de píldora */
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap; /* Evita que el texto del tag se rompa */
+}
+
+.status-tag.scheduled {
+    background-color: #28a745; /* Verde para programada */
+}
+
+/* Puedes añadir otros estados si los tienes */
+/*
+.status-tag.cancelled {
+    background-color: #dc3545; // Rojo
+}
+.status-tag.completed {
+    background-color: #007bff; // Azul
+}
+*/
+
+.appointment-card .card-details {
+    display: flex; /* Alinea fecha, hora y botón Modificar */
+    align-items: center; /* Centra verticalmente */
+    gap: 20px; /* Espacio entre los elementos */
+    flex-wrap: wrap; /* Permite que los elementos salten de línea */
+}
+
+.appointment-card .detail-item {
+    display: flex;
+    align-items: center;
+    color: #555;
+    font-size: 0.9rem;
+}
+
+.appointment-card .detail-item .icon {
+    margin-right: 5px;
+    color: #1e3a5f; /* Color del icono */
+}
+
+.appointment-card .btn-secondary {
+    background-color: #007bff; /* Color azul secundario */
+    color: #fff;
+    padding: 8px 15px;
+    font-size: 0.9rem;
+    margin-left: auto; /* Empuja el botón a la derecha */
+}
+
+.appointment-card .btn-secondary:hover {
+    background-color: #0056b3;
+}
+
+/* Media Query para ajustar el margen del contenido principal en pantallas más pequeñas */
+/* Cuando la pantalla sea menor a 768px (o el ancho de tu sidebar + un margen) */
+@media (max-width: 768px) { /* Ajusta el valor según el punto de quiebre que necesites */
+  .main-content {
+    margin-left: 0; /* Elimina el margen en pantallas pequeñas */
+    padding-top: 80px; /* Añade padding arriba para que el contenido no quede bajo el sidebar si este es responsivo/colapsable */
+  }
+
+  /* Si tu sidebar se oculta o cambia en móvil, necesitarías estilos adicionales para él */
+}

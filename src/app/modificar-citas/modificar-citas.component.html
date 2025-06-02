@@ -1,0 +1,36 @@
+<div class="container">
+  <app-sidebar-menu></app-sidebar-menu>
+
+  <div class="main-content">
+    <header class="header">
+      <h2>Modificar Citas</h2>
+      <button class="new-cita-button" (click)="nuevaCita()">Nueva Cita</button>
+    </header>
+
+    <div class="cita-table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Paciente</th>
+            <th>Motivo</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let appointment of appointments">
+            <td>{{ appointment.fecha }}</td>
+            <td>{{ appointment.hora }}</td>
+            <td>{{ appointment.paciente }}</td>
+            <td>{{ appointment.motivo }}</td>
+            <td>
+              <a [routerLink]="['/doctor/appointments/edit', appointment.id]" class="action-link edit">Editar</a>
+              <a href="#" class="action-link delete" (click)="eliminarCita(appointment); $event.preventDefault();">Eliminar</a>
+            </td>
+          </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>

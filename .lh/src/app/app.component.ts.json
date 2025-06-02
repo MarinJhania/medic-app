@@ -1,0 +1,42 @@
+{
+    "sourceFile": "src/app/app.component.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 6,
+            "patches": [
+                {
+                    "date": 1747469918921,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1747476510285,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,13 @@\n import { Component } from '@angular/core';\r\n-\r\n+import { RouterOutlet } from '@angular/router'; // Importa RouterOutlet\r\n+import { HomeComponent } from './pages/home/home.component';\r\n+import { LoginComponent } from './login/login.component'; // Ajusta la ruta\r\n @Component({\r\n   selector: 'app-root',\r\n   standalone: true,\r\n-  imports: [],\r\n+  imports: [RouterOutlet, HomeComponent, LoginComponent], // Importa RouterOutlet y los componentes que usarás en las rutas\r\n   template: `\r\n-    <app-home></app-home>\r\n+    <router-outlet></router-outlet>\r\n   `\r\n })\r\n-export class AppComponent {}\r\n+export class AppComponent {}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1747527685017,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,14 @@\n import { Component } from '@angular/core';\r\n import { RouterOutlet } from '@angular/router'; // Importa RouterOutlet\r\n import { HomeComponent } from './pages/home/home.component';\r\n import { LoginComponent } from './login/login.component'; // Ajusta la ruta\r\n+import { RegisterComponent } from './register/register.component'; // <--- Importa RegisterComponent\r\n+\r\n @Component({\r\n   selector: 'app-root',\r\n   standalone: true,\r\n-  imports: [RouterOutlet, HomeComponent, LoginComponent], // Importa RouterOutlet y los componentes que usarás en las rutas\r\n+  imports: [RouterOutlet, HomeComponent, LoginComponent, RegisterComponent], // <--- Agrega RegisterComponent a los imports\r\n   template: `\r\n     <router-outlet></router-outlet>\r\n   `\r\n })\r\n"
+                },
+                {
+                    "date": 1747535638621,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,13 +2,14 @@\n import { RouterOutlet } from '@angular/router'; // Importa RouterOutlet\r\n import { HomeComponent } from './pages/home/home.component';\r\n import { LoginComponent } from './login/login.component'; // Ajusta la ruta\r\n import { RegisterComponent } from './register/register.component'; // <--- Importa RegisterComponent\r\n+import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.component'; // <--- Importa DoctorDashboardComponent\r\n \r\n @Component({\r\n   selector: 'app-root',\r\n   standalone: true,\r\n-  imports: [RouterOutlet, HomeComponent, LoginComponent, RegisterComponent], // <--- Agrega RegisterComponent a los imports\r\n+  imports: [RouterOutlet, HomeComponent, LoginComponent, RegisterComponent, DoctorDashboardComponent], // <--- Agrega DoctorDashboardComponent a los imports\r\n   template: `\r\n     <router-outlet></router-outlet>\r\n   `\r\n })\r\n"
+                },
+                {
+                    "date": 1747883054698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \r\n @Component({\r\n   selector: 'app-root',\r\n   standalone: true,\r\n-  imports: [RouterOutlet, HomeComponent, LoginComponent, RegisterComponent, DoctorDashboardComponent], // <--- Agrega DoctorDashboardComponent a los imports\r\n+  imports: [RouterOutlet, HomeComponent, RegisterComponent, DoctorDashboardComponent], // <--- Agrega DoctorDashboardComponent a los imports\r\n   template: `\r\n     <router-outlet></router-outlet>\r\n   `\r\n })\r\n"
+                },
+                {
+                    "date": 1748209378961,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,16 +1,12 @@\n import { Component } from '@angular/core';\r\n-import { RouterOutlet } from '@angular/router'; // Importa RouterOutlet\r\n-import { HomeComponent } from './pages/home/home.component';\r\n-import { LoginComponent } from './login/login.component'; // Ajusta la ruta\r\n-import { RegisterComponent } from './register/register.component'; // <--- Importa RegisterComponent\r\n-import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.component'; // <--- Importa DoctorDashboardComponent\r\n+import { RouterOutlet } from '@angular/router';\r\n \r\n @Component({\r\n   selector: 'app-root',\r\n   standalone: true,\r\n-  imports: [RouterOutlet, HomeComponent, RegisterComponent, DoctorDashboardComponent], // <--- Agrega DoctorDashboardComponent a los imports\r\n+  imports: [RouterOutlet],\r\n   template: `\r\n     <router-outlet></router-outlet>\r\n   `\r\n\\ No newline at end of file\n })\r\n-export class AppComponent {}\n+export class AppComponent {}\r\n"
+                },
+                {
+                    "date": 1748209414005,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,15 @@\n import { Component } from '@angular/core';\r\n-import { RouterOutlet } from '@angular/router';\r\n+import { RouterOutlet } from '@angular/router'; // Importa RouterOutlet\r\n+import { HomeComponent } from './pages/home/home.component';\r\n+import { LoginComponent } from './login/login.component'; // Ajusta la ruta\r\n+import { RegisterComponent } from './register/register.component'; // <--- Importa RegisterComponent\r\n+import { DoctorDashboardComponent } from './doctor-dashboard/doctor-dashboard.component'; // <--- Importa DoctorDashboardComponent\r\n \r\n @Component({\r\n   selector: 'app-root',\r\n   standalone: true,\r\n-  imports: [RouterOutlet],\r\n+  imports: [RouterOutlet, HomeComponent, RegisterComponent, DoctorDashboardComponent], // <--- Agrega DoctorDashboardComponent a los imports\r\n   template: `\r\n     <router-outlet></router-outlet>\r\n   `\r\n })\r\n"
+                }
+            ],
+            "date": 1747469918921,
+            "name": "Commit-0",
+            "content": "import { Component } from '@angular/core';\r\n\r\n@Component({\r\n  selector: 'app-root',\r\n  standalone: true,\r\n  imports: [],\r\n  template: `\r\n    <app-home></app-home>\r\n  `\r\n})\r\nexport class AppComponent {}\r\n"
+        }
+    ]
+}

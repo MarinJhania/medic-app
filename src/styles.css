@@ -1,0 +1,114 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f9f9f9; /* Un fondo gris muy claro */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Sombra más pronunciada pero suave */
+    padding: 40px; /* Mayor espacio interno */
+    width: 90%;
+    max-width: 960px; /* Un ancho máximo un poco mayor */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 40px; /* Más espacio debajo del encabezado */
+}
+
+header h1 {
+    color: #1e88e5; /* Un azul más vibrante */
+    margin-bottom: 8px;
+    font-size: 2.5em; /* Título más grande */
+    font-weight: 600; /* Texto un poco más grueso */
+}
+
+header p {
+    color: #757575; /* Un gris un poco más claro */
+    font-size: 1.1em;
+}
+
+.options {
+    display: flex;
+    gap: 30px; /* Mayor espacio entre las tarjetas */
+    margin-bottom: 40px; /* Más espacio debajo de las opciones */
+    width: 100%;
+    justify-content: center;
+}
+
+.option-card {
+    background-color: #fff;
+    border-radius: 8px; /* Bordes más redondeados para las tarjetas */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* Sombra suave para las tarjetas */
+    padding: 30px; /* Mayor relleno interno para las tarjetas */
+    width: 320px; /* Un ancho ligeramente mayor para las tarjetas */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between; /* Espacio entre los elementos internos */
+    border: 1px solid #eee; /* Borde más claro */
+}
+
+.icon {
+    font-size: 3em; /* Iconos más grandes */
+    margin-bottom: 20px;
+    color: #2196f3; /* Azul más brillante para el icono de paciente */
+}
+
+.doctor-card .icon {
+    color: #4caf50; /* Verde para el icono de doctor */
+}
+
+.option-card h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    color: #263238; /* Un gris azulado oscuro para el título */
+    font-size: 1.6em; /* Título de la tarjeta más grande */
+    font-weight: 500;
+}
+
+.option-card p {
+    color: #757575;
+    font-size: 1em;
+    margin-bottom: 25px;
+}
+
+.access-button {
+    background-color: #e3f2fd; /* Fondo claro para el botón de paciente */
+    color: #1e88e5; /* Azul más vibrante para el texto del botón de paciente */
+    border: none;
+    border-radius: 6px; /* Bordes más redondeados para los botones */
+    padding: 12px 24px; /* Mayor relleno para los botones */
+    cursor: pointer;
+    font-weight: 500; /* Texto del botón un poco más grueso */
+    transition: background-color 0.3s ease;
+    font-size: 1em;
+}
+
+.access-button:hover {
+    background-color: #bbdefb; /* Un tono más oscuro al pasar el ratón */
+}
+
+.doctor-card .access-button {
+    background-color: #e8f5e9; /* Fondo claro para el botón de doctor */
+    color: #4caf50; /* Verde para el texto del botón de doctor */
+}
+
+.doctor-card .access-button:hover {
+    background-color: #c8e6c9; /* Un tono más oscuro al pasar el ratón */
+}
+
+footer {
+    color: #757575;
+    font-size: 0.95em;
+}

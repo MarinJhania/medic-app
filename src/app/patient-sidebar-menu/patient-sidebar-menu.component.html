@@ -1,0 +1,63 @@
+<aside class="sidebar"
+       [class.hidden]="isSidebarHidden"
+       [class.collapsed]="isSidebarCollapsed"
+       [class.visible-mobile]="isSidebarVisibleMobile">
+
+  <button class="menu-toggle" (click)="toggleSidebar()">
+    ☰ 
+  </button>
+
+  <div class="logo">MEDIC</div>
+  <nav class="main-nav">
+    <ul>
+      <li>
+        <a [routerLink]="['/patient/dashboard']" routerLinkActive="active" (click)="closeSidebarOnMobile()">
+          <span class="icon">📅</span> Agendar Cita
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/patient/view']" routerLinkActive="active" (click)="closeSidebarOnMobile()">
+          <span class="icon">📅</span> Reagendar Cita
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/patient/cancelar']" routerLinkActive="active" (click)="closeSidebarOnMobile()">
+          <span class="icon">❌</span> Cancelar Cita
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/patient/datos']" routerLinkActive="active" (click)="closeSidebarOnMobile()">
+          <span class="icon">👤</span> Datos del Usuario
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/patient/historial']" routerLinkActive="active" (click)="closeSidebarOnMobile()">
+          <span class="icon">🕒</span> Historial de Citas
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/patient/notificaciones']" routerLinkActive="active" (click)="closeSidebarOnMobile()">
+          <span class="icon">🔔</span> Notificaciones
+        </a>
+      </li>
+      <li>
+        <a [routerLink]="['/patient/recordatorios']" routerLinkActive="active" (click)="closeSidebarOnMobile()">
+          <span class="icon">🔔</span> Recordatorios
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <div class="logout">
+    <a [routerLink]="['/']" (click)="closeSidebarOnMobile()">
+      <span class="icon">➡️</span> Cerrar Sesión
+    </a>
+  </div>
+</aside>
+
+<div class="mobile-menu-button-container" *ngIf="isMobileView && !isSidebarVisibleMobile">
+  <button class="mobile-toggle-button" (click)="toggleSidebar()">
+    ☰
+  </button>
+</div>
+
+<div class="mobile-overlay" *ngIf="isMobileView && isSidebarVisibleMobile" (click)="closeSidebarOnMobile()"></div>

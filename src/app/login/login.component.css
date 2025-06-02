@@ -1,0 +1,284 @@
+/* login.component.css o styles.css */
+
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f0f2f5; /* Un fondo gris claro */
+  padding: 20px; /* Padding general para evitar que toque los bordes en móviles */
+  box-sizing: border-box;
+}
+
+.login-card {
+  background-color: #fff;
+  padding: 50px; /* Aumentado el padding para pantallas grandes */
+  border-radius: 8px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15); /* Sombra ligeramente más pronunciada */
+  width: 100%;
+  max-width: 850px; /* AUMENTADO SIGNIFICATIVAMENTE para aprovechar más el espacio en PC */
+  box-sizing: border-box;
+}
+
+.login-header {
+  text-align: center;
+  margin-bottom: 35px; /* Más espacio debajo del encabezado */
+}
+
+.login-header h1 {
+  color: #1877f2;
+  margin-bottom: 8px; /* Un poco más de espacio debajo del título */
+  font-size: 3.2em; /* ¡AÚN MÁS GRANDE para pantallas grandes! */
+}
+
+.login-header p {
+  color: #657786;
+  font-size: 1.2em; /* ¡AÚN MÁS GRANDE para pantallas grandes! */
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 28px; /* Más espacio entre grupos de formulario */
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 10px; /* Más espacio debajo de la etiqueta */
+  color: #1c1e21;
+  font-weight: bold;
+  font-size: 1.15em; /* ¡AÚN MÁS GRANDE para los labels! */
+}
+
+.form-group input[type="email"],
+.form-group input[type="password"] {
+  width: 100%;
+  padding: 16px; /* ¡AUMENTADO el padding de los inputs! */
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 1.15em; /* ¡AUMENTADO el tamaño de la fuente de los inputs! */
+  box-sizing: border-box;
+}
+
+.password-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-input-container input[type="password"] {
+  padding-right: 50px; /* Más espacio para el botón de mostrar/ocultar */
+}
+
+.password-toggle-button {
+  position: absolute;
+  right: 15px; /* Ajuste de posición */
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #657786;
+  font-size: 1.4em; /* ¡AÚN MÁS GRANDE! */
+}
+
+.forgot-password {
+  display: block;
+  text-align: right;
+  color: #1877f2;
+  text-decoration: none;
+  margin-bottom: 28px; /* Más espacio antes del botón de login */
+  font-size: 1.05em; /* Aumentado */
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.login-button {
+  background-color: #1877f2;
+  color: #fff;
+  padding: 18px; /* ¡AUMENTADO el padding del botón! */
+  border: none;
+  border-radius: 6px;
+  font-size: 1.25em; /* ¡AUMENTADO el tamaño de la fuente del botón! */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+  background-color: #1665c8;
+}
+
+.register-prompt {
+    text-align: center;
+    margin-top: 35px; /* Más espacio sobre el prompt de registro */
+    font-size: 1.05em; /* Aumentado */
+    color: #657786;
+}
+
+.register-link {
+  color: #1877f2;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+/* --- Media Queries for Responsiveness --- */
+
+/* Para pantallas más pequeñas que 1024px (Laptops, algunas tablets grandes) */
+@media (max-width: 1024px) {
+    .login-card {
+        max-width: 700px;
+        padding: 40px; /* Ajuste de padding */
+    }
+    .login-header h1 {
+        font-size: 2.8em;
+    }
+    .login-header p {
+        font-size: 1.1em;
+    }
+    .form-group {
+        margin-bottom: 25px;
+    }
+    .form-group label {
+        font-size: 1.1em;
+        margin-bottom: 8px;
+    }
+    .form-group input[type="email"],
+    .form-group input[type="password"] {
+        padding: 14px;
+        font-size: 1.1em;
+    }
+    .password-input-container input[type="password"] {
+        padding-right: 45px;
+    }
+    .password-toggle-button {
+        font-size: 1.3em;
+        right: 12px;
+    }
+    .forgot-password, .register-prompt {
+        font-size: 1em;
+    }
+    .login-button {
+        padding: 16px;
+        font-size: 1.2em;
+    }
+}
+
+
+/* Para pantallas más pequeñas que 768px (Tablets en vertical) */
+@media (max-width: 768px) {
+  .login-card {
+    padding: 30px; /* Reduce el padding en tablets */
+    max-width: 500px; /* Ajuste para tablets */
+  }
+
+  .login-header {
+      margin-bottom: 25px;
+  }
+  .login-header h1 {
+    font-size: 2.4em; /* Título más pequeño en tablets */
+  }
+
+  .login-header p {
+    font-size: 1em;
+  }
+
+  .form-group {
+      margin-bottom: 20px;
+  }
+
+  .form-group label {
+      font-size: 1em;
+      margin-bottom: 5px;
+  }
+
+  .form-group input[type="email"],
+  .form-group input[type="password"] {
+    padding: 12px;
+    font-size: 1em;
+  }
+
+  .password-input-container input[type="password"] {
+    padding-right: 40px;
+  }
+
+  .password-toggle-button {
+    font-size: 1.2em;
+    right: 10px;
+  }
+
+  .forgot-password, .register-prompt {
+    font-size: 0.9em;
+    margin-bottom: 20px;
+  }
+
+  .login-button {
+      padding: 14px;
+      font-size: 1.1em;
+  }
+}
+
+/* Para pantallas más pequeñas que 480px (Móviles) */
+@media (max-width: 480px) {
+  .login-container {
+    padding: 15px;
+  }
+
+  .login-card {
+    padding: 25px; /* Más reducido para móviles */
+    max-width: 95%; /* Que ocupe casi todo el ancho de la pantalla */
+  }
+
+  .login-header {
+      margin-bottom: 20px;
+  }
+  .login-header h1 {
+    font-size: 1.8em; /* Aún más pequeño en móviles */
+    margin-bottom: 5px;
+  }
+
+  .login-header p {
+    font-size: 0.85em;
+  }
+
+  .form-group {
+      margin-bottom: 18px;
+  }
+
+  .form-group label {
+      font-size: 0.95em;
+  }
+
+  .form-group input[type="email"],
+  .form-group input[type="password"] {
+    padding: 10px;
+    font-size: 0.95em;
+  }
+
+  .password-input-container input[type="password"] {
+    padding-right: 35px;
+  }
+
+  .password-toggle-button {
+    right: 8px;
+    font-size: 1.1em;
+  }
+
+  .forgot-password, .register-prompt {
+    font-size: 0.8em;
+    margin-bottom: 18px;
+  }
+
+  .login-button {
+    padding: 12px;
+    font-size: 1em;
+  }
+}

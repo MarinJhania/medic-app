@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/patient-cancel-appointment/patient-cancel-appointment.component.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1747631243829,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1747631243829,
+            "name": "Commit-0",
+            "content": "<div class=\"dashboard-container\">\r\n  <app-patient-sidebar-menu></app-patient-sidebar-menu>\r\n\r\n  <div class=\"main-content\">\r\n    <section class=\"cancel-appointment-section\">\r\n      <h1 class=\"section-title\">Cancelar Cita</h1>\r\n      <p class=\"section-subtitle\">Cancela citas que ya no necesitas</p>\r\n\r\n      <h2 class=\"active-appointments-title\">Citas activas</h2>\r\n\r\n      <div class=\"appointment-list\">\r\n        <div class=\"appointment-card\">\r\n          <div class=\"card-content\">\r\n            <div class=\"doctor-info\">\r\n              <div class=\"doctor-name\">Dr. García Martínez</div>\r\n              <div class=\"doctor-specialty\">Medicina General</div>\r\n              <div class=\"appointment-type\">Consulta de rutina</div>\r\n            </div>\r\n            <span class=\"status-tag scheduled\">Programada</span>\r\n          </div>\r\n          <div class=\"card-details\">\r\n            <div class=\"detail-item\">\r\n              <i class=\"icon fas fa-calendar-alt\"></i> <span>14/11/2023</span>\r\n            </div>\r\n            <div class=\"detail-item\">\r\n              <i class=\"icon fas fa-clock\"></i> <span>09:00</span>\r\n            </div>\r\n            <button class=\"btn btn-danger\">Cancelar</button>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"appointment-card\">\r\n            <div class=\"card-content\">\r\n              <div class=\"doctor-info\">\r\n                <div class=\"doctor-name\">Dra. Rodríguez López</div>\r\n                <div class=\"doctor-specialty\">Cardiología</div>\r\n                <div class=\"appointment-type\">Revisión anual</div>\r\n              </div>\r\n              <span class=\"status-tag scheduled\">Programada</span>\r\n            </div>\r\n            <div class=\"card-details\">\r\n              <div class=\"detail-item\">\r\n                <i class=\"icon fas fa-calendar-alt\"></i> <span>19/11/2023</span>\r\n              </div>\r\n              <div class=\"detail-item\">\r\n                <i class=\"icon fas fa-clock\"></i> <span>10:30</span>\r\n              </div>\r\n               <button class=\"btn btn-danger\">Cancelar</button>\r\n            </div>\r\n          </div>\r\n\r\n        </div>\r\n    </section>\r\n  </div>\r\n</div>"
+        }
+    ]
+}

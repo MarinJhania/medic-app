@@ -1,0 +1,69 @@
+<div class="dashboard-container">
+  <app-sidebar-menu></app-sidebar-menu>
+
+  <main class="main-content">
+    <header class="dashboard-header">
+      <h1>Bienvenido, Dr. García</h1>
+    </header>
+
+    <section class="kpi-section">
+      <div class="kpi-card">
+        <div class="kpi-icon">📅</div>
+        <div class="kpi-value">2</div>
+        <div class="kpi-label">Citas Hoy</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">👥</div>
+        <div class="kpi-value">124</div>
+        <div class="kpi-label">Pacientes</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">⏱️</div>
+        <div class="kpi-value">3</div>
+        <div class="kpi-label">Pendientes</div>
+      </div>
+      <div class="kpi-card">
+        <div class="kpi-icon">🔔</div>
+        <div class="kpi-value">5</div>
+        <div class="kpi-label">Recordatorios</div>
+      </div>
+    </section>
+
+    <section class="agenda-section">
+      <h2>Agenda del Día</h2>
+      <table class="agenda-table">
+        <thead>
+          <tr>
+            <th>Hora</th>
+            <th>Paciente</th>
+            <th>Motivo</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>09:00 AM</td>
+            <td>María López</td>
+            <td>Control mensual</td>
+            <td><span class="status pendiente">Pendiente</span></td>
+            <td>
+              <button class="action-button">Ver detalles</button> |
+              <button class="action-button cancelar">Cancelar</button>
+            </td>
+          </tr>
+          <tr>
+            <td>10:30 AM</td>
+            <td>Carlos Rodríguez</td>
+            <td>Primera consulta</td>
+            <td><span class="status confirmada">Confirmada</span></td>
+            <td>
+              <button class="action-button">Ver detalles</button> |
+              <button class="action-button cancelar">Cancelar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+</div>

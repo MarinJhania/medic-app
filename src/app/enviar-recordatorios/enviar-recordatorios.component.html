@@ -1,0 +1,43 @@
+<div class="container">
+  <app-sidebar-menu></app-sidebar-menu>
+
+  <div class="main-content">
+    <header class="header">
+      <h2>Enviar Recordatorios</h2>
+      <button class="send-all-button" (click)="enviarTodosRecordatorios()">Enviar Todos</button>
+    </header>
+
+    <div class="reminders-table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Paciente</th>
+            <th>Fecha</th>
+            <th>Hora</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let reminder of reminders">
+            <td>{{ reminder.paciente }}</td>
+            <td>{{ reminder.fecha }}</td>
+            <td>{{ reminder.hora }}</td>
+            <td>
+              <span class="status-badge" [ngClass]="'status-' + reminder.estado.toLowerCase()">
+                {{ reminder.estado }}
+              </span>
+            </td>
+            <td>
+              <button class="send-reminder-button"
+                      [disabled]="reminder.estado === 'Enviado'"
+                      (click)="enviarRecordatorio(reminder)">
+                Enviar recordatorio
+              </button>
+            </td>
+          </tr>
+          </tbody>
+      </table>
+    </div>
+  </div>
+</div>

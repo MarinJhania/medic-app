@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/environments/firebase-config.ts",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1748222696912,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1748222696912,
+            "name": "Commit-0",
+            "content": "export const firebaseConfig = {\r\n  apiKey: \"AIzaSyC5-YCn10yLjmFwQskBCiJrcVfq98A976Q\",\r\n  authDomain: \"medic-app-f447d.firebaseapp.com\",\r\n  projectId: \"medic-app-f447d\",\r\n  storageBucket: \"medic-app-f447d.firebasestorage.app\",\r\n  messagingSenderId: \"522011302905\",\r\n  appId: \"1:522011302905:web:da4f966fd206c1222c7b28\",\r\n  measurementId: \"G-558WX9Y3FF\"\r\n};\r\n"
+        }
+    ]
+}

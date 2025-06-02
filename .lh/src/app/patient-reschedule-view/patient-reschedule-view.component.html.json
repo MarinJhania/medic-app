@@ -1,0 +1,18 @@
+{
+    "sourceFile": "src/app/patient-reschedule-view/patient-reschedule-view.component.html",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1747630218153,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1747630218153,
+            "name": "Commit-0",
+            "content": "<div class=\"dashboard-container\">\r\n  <app-patient-sidebar-menu></app-patient-sidebar-menu>\r\n\r\n  <div class=\"main-content\">\r\n    <section class=\"reschedule-section\">\r\n      <h1 class=\"section-title\">Reagendar Cita</h1>\r\n      <p class=\"section-subtitle\">Selecciona una nueva fecha y hora para tu cita.</p>\r\n\r\n      <div class=\"reschedule-form-container\">\r\n        <div class=\"form-group\">\r\n          <label class=\"doctor-label\">Cita con:</label>\r\n          <span class=\"doctor-name-display\">Dr. García Martínez</span> </div>\r\n\r\n        <div class=\"form-row\">\r\n          <div class=\"form-group date-picker-group\">\r\n            <label for=\"new-reschedule-date\">Seleccionar nueva fecha:</label>\r\n            <div class=\"input-with-icon\">\r\n              <input type=\"date\" id=\"new-reschedule-date\">\r\n              <i class=\"icon fas fa-calendar-alt\"></i> </div>\r\n          </div>\r\n\r\n          <div class=\"form-group time-picker-group\">\r\n            <label>Seleccionar nuevo horario:</label>\r\n            <div class=\"time-slots\">\r\n              <button class=\"time-slot\">08:00</button>\r\n              <button class=\"time-slot\">08:30</button>\r\n              <button class=\"time-slot\">09:00</button>\r\n              <button class=\"time-slot\">09:30</button>\r\n              <button class=\"time-slot\">10:00</button>\r\n              <button class=\"time-slot\">10:30</button>\r\n              <button class=\"time-slot\">11:00</button>\r\n              <button class=\"time-slot\">11:30</button>\r\n              <button class=\"time-slot\">12:00</button>\r\n              <button class=\"time-slot\">12:30</button>\r\n              <button class=\"time-slot\">15:00</button>\r\n              <button class=\"time-slot\">15:30</button>\r\n              <button class=\"time-slot\">16:00</button>\r\n              <button class=\"time-slot\">16:30</button>\r\n              <button class=\"time-slot\">17:00</button>\r\n              <button class=\"time-slot\">17:30</button>\r\n            </div>\r\n          </div>\r\n        </div>\r\n\r\n        <div class=\"form-actions\">\r\n          <button class=\"btn btn-cancel\">Cancelar</button>\r\n          <button class=\"btn btn-primary\">Confirmar cambio</button>\r\n        </div>\r\n      </div>\r\n    </section>\r\n\r\n    </div>\r\n</div>"
+        }
+    ]
+}

@@ -1,0 +1,117 @@
+/* Reutilizar el CSS del layout principal */
+
+.container {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+}
+
+/* El estilo de 'sidebar' (ancho, color de fondo, etc.) debe estar en sidebar-menu.component.css */
+
+.main-content {
+  flex-grow: 1; /* Takes up the remaining space */
+  padding: 20px;
+  background-color: #ecf0f1; /* Light background for main content */
+  overflow-y: auto; /* Add scroll if content overflows vertically */
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #bdc3c7; /* Separator line */
+}
+
+.header h2 {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+}
+
+/* Estilos para el botón "Enviar Todos" */
+.send-all-button {
+  background-color: #3498db; /* Azul */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.send-all-button:hover {
+  background-color: #2980b9; /* Azul más oscuro al pasar el ratón */
+}
+
+.reminders-table-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse; /* Remove space between borders */
+}
+
+th, td {
+  text-align: left;
+  padding: 12px 15px;
+  border-bottom: 1px solid #ddd; /* Light gray border */
+}
+
+th {
+  background-color: #f2f2f2; /* Light gray background for headers */
+  font-weight: bold;
+  color: #555;
+}
+
+tbody tr:hover {
+  background-color: #f9f9f9; /* Slight highlight on row hover */
+}
+
+/* --- Estilos para los badges de estado --- */
+.status-badge {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    min-width: 60px; /* Ancho mínimo para consistencia */
+    text-align: center;
+}
+
+.status-pendiente {
+    background-color: #f39c12; /* Naranja */
+}
+
+.status-enviado {
+    background-color: #2ecc71; /* Verde */
+}
+
+/* --- Estilos para el botón "Enviar recordatorio" en la tabla --- */
+.send-reminder-button {
+    background-color: #3498db; /* Azul */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease, opacity 0.3s ease; /* Transición para hover y disabled */
+}
+
+.send-reminder-button:hover:not(:disabled) {
+    background-color: #2980b9; /* Azul más oscuro al pasar el ratón (si no está deshabilitado) */
+}
+
+.send-reminder-button:disabled {
+    background-color: #bdc3c7; /* Gris cuando está deshabilitado */
+    cursor: not-allowed;
+    opacity: 0.7;
+}
